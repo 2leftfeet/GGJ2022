@@ -7,4 +7,10 @@ public class PlayerHealth : Health
         base.ReduceHealth(amount);
         GameEvents.current.PlayerTakeDamageEvent();
     }
+
+    public override void AddHealth(int amount)
+    {
+        base.AddHealth(amount);
+        GameEvents.current.PlayerAddHealthEvent();
+    }
 }

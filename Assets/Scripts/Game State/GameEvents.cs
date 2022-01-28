@@ -16,4 +16,11 @@ public class GameEvents : MonoBehaviour
     {
         onPlayerTakeDamageEvent?.Invoke();
     }
+
+    public event Action onPlayerAddHealthEvent;
+
+    public void PlayerAddHealthEvent()
+    {
+        onPlayerAddHealthEvent?.Invoke();
+    }
 }
