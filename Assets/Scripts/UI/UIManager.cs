@@ -26,4 +26,9 @@ public class UIManager : MonoBehaviour
     {
         levelCompleteUI.gameObject.SetActive(true);
     }
+
+    void PauseGame()
+    {
+        
+    }
 }
