@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyEdible : MonoBehaviour, IInteractable
 {
     [SerializeField] Color glowColor = Color.black;
+    [SerializeField] int healAmount = 10;
 
     bool isHovering = false;
     Renderer m_renderer;
@@ -13,6 +14,7 @@ public class EnemyEdible : MonoBehaviour, IInteractable
     void Start()
     {
         m_renderer = GetComponent<Renderer>();
+        m_renderer.material.EnableKeyword("_EMISSION");
     }
 
     void Update()
@@ -36,6 +38,12 @@ public class EnemyEdible : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactee)
     {
-
+        var health = interactee.GetComponent<Health>();
+        if(health)
+        {
+            health.AddHealth(healAmount);
+            Destroy(gameObject);
+            //TODO: Spawn gibs
+        }
     }
 }

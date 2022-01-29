@@ -18,12 +18,15 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 
     bool isActive = true;
     float noiseOffset;
+    EnemyEdible edible;
 
 
     void Start()
     {
         playerT = FindObjectOfType<PlayerMovement>().transform;
         body = GetComponent<Rigidbody>();
+        edible = GetComponent<EnemyEdible>();
+        edible.enabled = false;
 
         noiseOffset = Random.Range(0f, 10000f);
     }
@@ -84,6 +87,8 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
         
         body.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         isActive = false;
+
+        edible.enabled = true;
     }
 
 }

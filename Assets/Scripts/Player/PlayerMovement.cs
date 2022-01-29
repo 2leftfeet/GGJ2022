@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        interactionRay = new Ray(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), playerCamera.forward);
+        interactionRay = new Ray(playerCamera.position, playerCamera.forward);
 
         if(Physics.Raycast(interactionRay, out interactionRayHit, interactionRayDistance))
         {
