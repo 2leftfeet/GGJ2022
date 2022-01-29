@@ -1,9 +1,23 @@
 using UnityEngine;
 
+public enum DamageType{
+    Water,
+    Fire,
+    Physical
+};
+
+public enum VulnerableTo{
+    Water,
+    Fire,
+    All
+}
+
 public class Health : MonoBehaviour
 {
     public int healthAmount;
     IDeadable owner;
+
+    public VulnerableTo vulnerability;
 
     void Awake()
     {
@@ -11,6 +25,11 @@ public class Health : MonoBehaviour
     }
 
     public virtual void ReduceHealth(int amount)
+    {
+        ReduceHealth(amount, null);
+    }
+
+    public virtual void ReduceHealth(int amount, Health author)
     {
         healthAmount -= amount;
         CheckForDeath();
