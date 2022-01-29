@@ -16,4 +16,39 @@ public class GameEvents : MonoBehaviour
     {
         onPlayerTakeDamageEvent?.Invoke();
     }
+
+    public event Action onPlayerAddHealthEvent;
+
+    public void PlayerAddHealthEvent()
+    {
+        onPlayerAddHealthEvent?.Invoke();
+    }
+    
+    public event Action onPlayerDeathEvent; //When Player Dies
+
+    public void PlayerDeathEvent()
+    {
+        onPlayerDeathEvent?.Invoke();
+    }
+    
+    public event Action onSceneRestartEvent; //When Scene should Restart
+
+    public void SceneRestartEvent()
+    {
+        onSceneRestartEvent?.Invoke();
+    }
+    
+    public event Action onSceneLoadEvent; //When Scene should load Next scene
+
+    public void SceneLoadEvent()
+    {
+        onSceneLoadEvent?.Invoke();
+    }
+    
+    public event Action onLevelFinishEvent; //When Player Finished a level
+
+    public void LevelFinishEvent()
+    {
+        onLevelFinishEvent?.Invoke();
+    }
 }

@@ -11,7 +11,13 @@ public class Health : MonoBehaviour
         CheckForDeath();
     }
 
-    void CheckForDeath()
+    public virtual void AddHealth(int amount)
+    {
+        healthAmount += amount;
+        if (healthAmount > 100) healthAmount = 100;
+    }
+
+    public virtual void CheckForDeath()
     {
         if (healthAmount <= 0)
         {

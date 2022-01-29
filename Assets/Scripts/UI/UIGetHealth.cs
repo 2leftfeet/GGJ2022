@@ -13,6 +13,7 @@ public class UIGetHealth : MonoBehaviour
         m_PlayerHpTextBox = GetComponent<TextMeshProUGUI>();
         m_PlayerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
         GameEvents.current.onPlayerTakeDamageEvent += UpdateUI;
+        GameEvents.current.onPlayerAddHealthEvent += UpdateUI;
     }
 
     void UpdateUI()
