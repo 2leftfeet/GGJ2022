@@ -16,6 +16,8 @@ public class PlayerInput : MonoBehaviour
         LockMouse();
         GameEvents.current.onPauseMenuEvent += UnlockMouse;
         GameEvents.current.onUnpauseMenuEvent += LockMouse;
+        GameEvents.current.onPlayerDeathEvent += UnlockMouse;
+        GameEvents.current.onSceneRestartEvent += LockMouse;
     }
 
     void Update()
