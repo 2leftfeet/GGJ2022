@@ -14,6 +14,7 @@ public class DaggerProjectile : MonoBehaviour
 
 
     public Health author;
+    public Vector3 launchPos;
 
     void Awake()
     {
@@ -29,11 +30,6 @@ public class DaggerProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        // if( groundLayer == (groundLayer | (1 << other.gameObject.layer)) )
-        // {
-        //     Physics.IgnoreCollision(GetComponent<Collider>(), other.collider, true);
-        //     body.isKinematic = true;
-        // }
         var hitHealth = other.gameObject.GetComponent<Health>();
         if(hitHealth && hitHealth.healthAmount > 0)
         {
@@ -41,6 +37,16 @@ public class DaggerProjectile : MonoBehaviour
             if(author) author.ReduceHealth(daggerDamage);
             Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
             Destroy(this.gameObject);
+        }
+
+        if( groundLayer == (groundLayer | (1 << other.gameObject.layer)) )
+        {
+            var sp = author.GetComponent<ShootProjectile>();
+            if(sp)
+            {
+                sp.SpawnPropKnifeAtCollision(other.contacts[0].point, launchPos);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
