@@ -6,6 +6,7 @@ public class ShootProjectile : MonoBehaviour
 {
     
     PlayerInput playerInput;
+    Health playerHealth;
 
     float reloadTimer = 0f;
     bool canShoot = true;
@@ -22,6 +23,7 @@ public class ShootProjectile : MonoBehaviour
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerHealth = GetComponent<PlayerHealth>();
 
         startingKnifeY = knifeEquipped.localPosition.y;
         loweredKnifeY = startingKnifeY - knifeLoweredByAmount;
@@ -52,7 +54,8 @@ public class ShootProjectile : MonoBehaviour
             reloadTimer = 0f;
             canShoot = false;
 
-            Instantiate(projectile, spawnTransform.position, spawnTransform.rotation);
+            DaggerProjectile newProj = Instantiate(projectile, spawnTransform.position, spawnTransform.rotation);
+            newProj.author = playerHealth;
         }
     }
 

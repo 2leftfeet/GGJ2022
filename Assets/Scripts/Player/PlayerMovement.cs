@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 30f;
     [SerializeField] float sensitivity = 2f;
 
+    bool tryJumpNextPhysicsFrame = false;
+
     void OnEnable()
     {
         playerInput.HoldJump += TryJump;
@@ -59,20 +61,23 @@ public class PlayerMovement : MonoBehaviour
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
         if(Physics.Raycast(groundCheckRay, out hit, playerHeight, groundLayermask))
         {
-            isGrounded = hit.distance < (playerHeight/2f + 0.05f);
+            isGrounded = hit.distance < (playerHeight/2f + 0.01f);
         }
 
         body.velocity = new Vector3(targetVelocity.x, body.velocity.y, targetVelocity.z);
+
+        if(tryJumpNextPhysicsFrame && isGrounded)
+        {
+            body.AddForce(Vector3.up * jumpForce);
+            tryJumpNextPhysicsFrame = false;
+            isGrounded = false;
+        }
 
     }
 
     void TryJump()
     {
-        if(isGrounded)
-        {
-            isGrounded = false;
-            body.AddForce(transform.up * jumpForce);
-        }
+        tryJumpNextPhysicsFrame = true;
     }
 
     void CameraLook()

@@ -116,6 +116,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  daggerDamage: 5
+  bloodVFX: {fileID: 5720913915738130991, guid: b9f75c39bf5bbba4393453e2a9c882e6,
+    type: 3}
+  author: {fileID: 0}
 --- !u!54 &4500323425167992108
 Rigidbody:
   m_ObjectHideFlags: 0
