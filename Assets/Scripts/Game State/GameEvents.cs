@@ -51,4 +51,18 @@ public class GameEvents : MonoBehaviour
     {
         onLevelFinishEvent?.Invoke();
     }
+    
+    public event Action onPauseMenuEvent; //When Player Finished a level
+
+    public void PauseMenuEvent()
+    {
+        onPauseMenuEvent?.Invoke();
+    }
+    
+    public event Action onUnpauseMenuEvent; //When Player Finished a level
+
+    public void UnpauseMenuEvent()
+    {
+        onUnpauseMenuEvent?.Invoke();
+    }
 }

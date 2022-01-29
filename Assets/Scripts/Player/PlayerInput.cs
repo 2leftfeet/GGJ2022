@@ -14,6 +14,10 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         LockMouse();
+        GameEvents.current.onPauseMenuEvent += UnlockMouse;
+        GameEvents.current.onUnpauseMenuEvent += LockMouse;
+        GameEvents.current.onPlayerDeathEvent += UnlockMouse;
+        GameEvents.current.onSceneRestartEvent += LockMouse;
     }
 
     void Update()
@@ -36,6 +40,12 @@ public class PlayerInput : MonoBehaviour
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             vertical += 1f;
+        }
+        
+        if(Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.P))
+        {
+            GameEvents.current.PauseMenuEvent();
+            
         }
 
         directionalInput = new Vector3(horizontal, vertical);

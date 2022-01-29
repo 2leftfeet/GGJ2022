@@ -9,25 +9,23 @@ public class SigilControler : MonoBehaviour
     float bobingMultiplier = 0.005f;
     Vector3 clockwiseRotation;
     static Vector3 correctFaceDirectionCorrection = new Vector3(90f, 0f, 0f);
-    private Vector3 playerPosition;
 
-    [SerializeField]
-    public GameObject _DEBUG_PLAYER_LOCATION;
 
-    public Vector3 PlayerPosition { get => playerPosition; set => playerPosition = value; }
+    private Transform playerPosition;
+    public Transform PlayerPosition { get => playerPosition; set => playerPosition = value; }
     public StateAI CurrentState { get => currentState; set => currentState = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         clockwiseRotation = new Vector3(0f, 0f, rotationSpeed);
-        CurrentState = StateAI.targeting;
+        currentState = StateAI.idle;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        switch (CurrentState)
+        switch (currentState)
         {
             case StateAI.idle:
                 Idling();
@@ -48,29 +46,48 @@ public class SigilControler : MonoBehaviour
 
     void Idling()
     {
-        this.transform.Rotate(clockwiseRotation);
+        transform.Rotate(clockwiseRotation);
         //boobing
-        this.transform.Translate((Vector3.forward * Mathf.Cos(Time.time))* bobingMultiplier);
+        transform.Translate((Vector3.forward * Mathf.Cos(Time.time))* bobingMultiplier);
     }
 
     void Targeting()
     {
         // change mat to red
-        this.transform.LookAt(_DEBUG_PLAYER_LOCATION.transform);
-        this.transform.Rotate(correctFaceDirectionCorrection);
-        float amountTochange = Mathf.Pow(Mathf.Sin(Time.time * 10f), 3f) * 0.01f;
-        Vector3 changeVector = new Vector3(amountTochange, amountTochange, amountTochange);
-        this.transform.localScale += changeVector;
+
+        Vector3 direction = playerPosition.transform.position - transform.position;
+        Quaternion toRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(correctFaceDirectionCorrection);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 0.03f * Time.time);
+
+        ChangeScaleSin(50f, 0.01f);
     }
 
     void Attacking()
     {
-        float amountTochange =  Mathf.Pow(Mathf.Sin(Time.time * 20f), 3f) * 0.01f;
-        Vector3 changeVector = new Vector3(amountTochange, amountTochange, amountTochange);
+        ChangeScaleSin(10f, 0.01f);
     }
     void Waiting()
     {
+        ChangeScaleSin(5f, 0.01f);
+    }
 
+
+    private void ChangeScaleSin(float freq, float amount)
+    {
+        float amountTochange = Mathf.Pow(Mathf.Sin(Time.time * freq), 3f) * amount;
+        Vector3 changeVector = new Vector3(amountTochange, amountTochange, amountTochange);
+        transform.localScale += changeVector;
+    }
+
+    public void ChangeState(StateAI state)
+    {
+        CurrentState = state;
+        transform.localScale = Vector3.one;
+    }
+
+    public void SyncPostition(Vector3 pos)
+    {
+        transform.position = new Vector3(pos.x, pos.y, pos.z);
     }
 
 }
