@@ -9,6 +9,7 @@ public class DaggerProjectile : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] int daggerDamage;
     [SerializeField] GameObject bloodVFX;
+    
 
     Rigidbody body;
 
@@ -33,8 +34,8 @@ public class DaggerProjectile : MonoBehaviour
         var hitHealth = other.gameObject.GetComponent<Health>();
         if(hitHealth && hitHealth.healthAmount > 0)
         {
-            hitHealth.ReduceHealth(daggerDamage);
-            if(author) author.ReduceHealth(daggerDamage);
+            hitHealth.ReduceHealth(daggerDamage, author);
+            //if(author) author.ReduceHealth(daggerDamage);
             Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
             Destroy(this.gameObject);
         }

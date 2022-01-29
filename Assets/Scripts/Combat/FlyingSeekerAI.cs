@@ -15,6 +15,7 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     [SerializeField] float damageCooldown = 2f;
     [SerializeField] int damageAmount = 30;
     [SerializeField] float damagePushForce = 50f;
+    [SerializeField] float damagePushForceUpwards = 20f;
 
     bool isActive = true;
     float noiseOffset;
@@ -45,7 +46,7 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
                 canAttack = false;
                 playerT.GetComponent<Health>().ReduceHealth(damageAmount);
                 playerT.GetComponent<Rigidbody>().AddForce(dirToPlayer * damagePushForce);
-                playerT.GetComponent<Rigidbody>().AddForce(Vector3.up * damagePushForce);
+                playerT.GetComponent<Rigidbody>().AddForce(Vector3.up * damagePushForceUpwards);
             }
 
             float noiseX = Mathf.PerlinNoise(0.5f, Time.time + noiseOffset);
@@ -61,7 +62,7 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 
     void Update()
     {
-        if(!isActive && !body.isKinematic && body.velocity.magnitude < 0.001f)
+        if(!isActive && !body.isKinematic && body.IsSleeping() )
         {
             body.isKinematic = true;
         }
@@ -82,7 +83,8 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     {
         //Decrease radius so it clips into the ground after falling
         GetComponent<SphereCollider>().radius *= 0.5f;
-
+        Destroy(GetComponent<Health>());
+        Debug.Log("flier die");
         body.useGravity = true;
         
         body.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
