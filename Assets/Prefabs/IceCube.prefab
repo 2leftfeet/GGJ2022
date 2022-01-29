@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8887590930016501560}
   - component: {fileID: 2585372803429315988}
   - component: {fileID: 5794083263598940282}
-  m_Layer: 0
+  - component: {fileID: 1425999841}
+  m_Layer: 2
   m_Name: Sigil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1425999841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802738430284730138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242598c6decc95c438a08fec534a6cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2151028711959543393
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +107,13 @@ GameObject:
   - component: {fileID: 3792378480085298010}
   - component: {fileID: 6703806401109868632}
   - component: {fileID: 546352847022860790}
-  m_Layer: 0
+  - component: {fileID: 198183124}
+  - component: {fileID: 198183125}
+  - component: {fileID: 198183129}
+  - component: {fileID: 198183128}
+  - component: {fileID: 198183133}
+  - component: {fileID: 198183134}
+  m_Layer: 2
   m_Name: Ice Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,10 +127,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2151028711959543393}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5601525846224280030}
   m_RootOrder: 0
@@ -166,6 +185,106 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &198183124
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!65 &198183125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.29, y: 5.55, z: 1.19}
+  m_Center: {x: -0.038507104, y: -0.14, z: 2.87}
+--- !u!65 &198183129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  m_Material: {fileID: 13400000, guid: 17060ec7a9fb0f24cb577f38b08b75ee, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.056589, y: 6.061433, z: 6.0354414}
+  m_Center: {x: -0.038507104, y: -0.02136004, z: 0.020195246}
+--- !u!114 &198183128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715a2901282d42d44ab8f3ece9f376e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sigil: {fileID: 8887590930016501560}
+  SigilCollider: {fileID: 0}
+  targetingDelay: 3
+  looseDelay: 2
+  attackLength: 2
+  rotationSpeed: 0.1
+  healthDeformationSpeed: 0.75
+  speed: 40
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  PlayerLocation: {fileID: 0}
+--- !u!114 &198183133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 100
+  vulnerability: 1
+--- !u!114 &198183134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151028711959543393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be57dde65bb7801449f92228f9c9d44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageShareRange: 10
+  damageShareProjectilePhysical: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  damageShareProjectileWater: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  damageShareProjectileFire: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  originalHealth: {fileID: 0}
 --- !u!1 &5113642456816960356
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5601525846224280030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: IceCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
