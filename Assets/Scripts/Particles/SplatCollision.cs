@@ -6,7 +6,7 @@ using UnityEngine;
 public class SplatCollision : MonoBehaviour
 {
     ParticleSystem m_ParentParticle;
-    public ParticleDecalPool decalData;
+    ParticleDecalPool decalData;
 
     List<ParticleCollisionEvent> m_CollisionEvents;
 
@@ -14,6 +14,8 @@ public class SplatCollision : MonoBehaviour
     {
         m_ParentParticle = GetComponent<ParticleSystem>();
         m_CollisionEvents = new List<ParticleCollisionEvent>();
+        decalData = FindObjectOfType<ParticleDecalPool>();
+        
     }
 
     void OnParticleCollision(GameObject other)
@@ -22,8 +24,8 @@ public class SplatCollision : MonoBehaviour
 
         for (int i = 0; i < m_CollisionEvents.Count; i++)
         {
-            Debug.Log("Collided " + m_CollisionEvents.Count);
-            decalData.ParticleHit(m_CollisionEvents[i]);
+            //Debug.Log("Collided " + m_CollisionEvents.Count);
+            if(decalData) decalData.ParticleHit(m_CollisionEvents[i]);
         }
     }
 }

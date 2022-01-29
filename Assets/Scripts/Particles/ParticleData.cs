@@ -6,4 +6,5 @@ public class ParticleData
 {
     public Vector3 position;
     public Vector3 rotation;
+    public float size;
 }

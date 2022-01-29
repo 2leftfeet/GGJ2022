@@ -117,9 +117,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 448
   daggerDamage: 5
-  bloodVFX: {fileID: 5720913915738130991, guid: b9f75c39bf5bbba4393453e2a9c882e6,
-    type: 3}
+  bloodVFX: {fileID: 196779935207871927, guid: b9f75c39bf5bbba4393453e2a9c882e6, type: 3}
   author: {fileID: 0}
+  launchPos: {x: 0, y: 0, z: 0}
 --- !u!54 &4500323425167992108
 Rigidbody:
   m_ObjectHideFlags: 0
