@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + velocity);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if(wallLayermask == (wallLayermask | (1 << other.gameObject.layer)))
         {
