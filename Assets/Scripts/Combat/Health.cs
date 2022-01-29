@@ -3,7 +3,12 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int healthAmount;
-    public IDeadable owner;
+    IDeadable owner;
+
+    void Awake()
+    {
+        owner = GetComponent<IDeadable>();
+    }
 
     public virtual void ReduceHealth(int amount)
     {

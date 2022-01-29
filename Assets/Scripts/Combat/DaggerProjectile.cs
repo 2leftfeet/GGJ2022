@@ -35,7 +35,7 @@ public class DaggerProjectile : MonoBehaviour
         //     body.isKinematic = true;
         // }
         var hitHealth = other.gameObject.GetComponent<Health>();
-        if(hitHealth)
+        if(hitHealth && hitHealth.healthAmount > 0)
         {
             hitHealth.ReduceHealth(daggerDamage);
             if(author) author.ReduceHealth(daggerDamage);

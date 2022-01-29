@@ -235,8 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66059e46e211d51439ae176dc2e23573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 0
-  noiseForceStrength: 0
+  flySpeed: 5
+  noiseForceStrength: 3
+  damageRange: 2
+  damageCooldown: 2
+  damageAmount: 30
+  damagePushForce: 500
 --- !u!54 &265848662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -778,6 +782,8 @@ MonoBehaviour:
     m_Bits: 64
   playerCamera: {fileID: 1175571537}
   maxSpeed: 10
+  maxAcceleration: 80
+  midAirAccelerationModifier: 0.6
   additionalGravity: 10
   jumpForce: 500
   sensitivity: 2

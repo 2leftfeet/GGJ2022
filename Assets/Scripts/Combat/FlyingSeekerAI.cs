@@ -6,9 +6,15 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 {
     Transform playerT;
     Rigidbody body;
+    float damageCooldownTimer = 0f;
+    bool canAttack;
 
     [SerializeField] float flySpeed = 5f;
     [SerializeField] float noiseForceStrength = 1f;
+    [SerializeField] float damageRange = 1f;
+    [SerializeField] float damageCooldown = 2f;
+    [SerializeField] int damageAmount = 30;
+    [SerializeField] float damagePushForce = 50f;
 
     bool isActive = true;
 
@@ -23,10 +29,18 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     {
         if(isActive)
         {
-            Vector3 flyDir = playerT.position - transform.position;
-            flyDir = flyDir.normalized;
+            Vector3 dirToPlayer = playerT.position - transform.position;
+            Vector3 flyDir = dirToPlayer.normalized;
 
-            flyDir *= flySpeed;
+            flyDir = flyDir * flySpeed;
+
+            if(canAttack && dirToPlayer.magnitude < damageRange)
+            {
+                canAttack = false;
+                playerT.GetComponent<Health>().ReduceHealth(damageAmount);
+                playerT.GetComponent<Rigidbody>().AddForce(dirToPlayer * damagePushForce);
+                playerT.GetComponent<Rigidbody>().AddForce(Vector3.up * damagePushForce);
+            }
 
             float noiseX = Mathf.PerlinNoise(0.5f, Time.time);
             float noiseY = Mathf.PerlinNoise(5.5f, Time.time);
@@ -37,6 +51,24 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 
             body.velocity = flyDir + noiseDir;
         }
+    }
+
+    void Update()
+    {
+        if(!isActive && !body.isKinematic && body.velocity.magnitude < 0.001f)
+        {
+            body.isKinematic = true;
+        }
+
+        if(!canAttack)
+        {
+            damageCooldownTimer += Time.deltaTime;
+            if(damageCooldownTimer > damageCooldown)
+            {
+                damageCooldownTimer = 0f;
+                canAttack = true;
+            }
+        }
         
     }
 
@@ -46,6 +78,8 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
         GetComponent<SphereCollider>().radius *= 0.5f;
 
         body.useGravity = true;
+        
+        body.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
         isActive = false;
     }
 
