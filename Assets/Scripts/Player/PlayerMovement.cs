@@ -27,10 +27,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 30f;
     [SerializeField] float sensitivity = 2f;
     [SerializeField] float wallJumpCooldown;
+    [SerializeField] float interactionRayDistance = 2f;
 
     bool tryJumpNextPhysicsFrame = false;
     bool canWallJump = true;
     float wallJumpWaitTimer = 0f;
+    
+    Ray interactionRay;
+    RaycastHit interactionRayHit;
 
 
     void OnEnable()
@@ -119,6 +123,31 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+    }
+
+    void LateUpdate()
+    {
+        interactionRay = new Ray(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), playerCamera.forward);
+
+        if(Physics.Raycast(interactionRay, out interactionRayHit, interactionRayDistance))
+        {
+            if (interactionRayHit.collider.gameObject.GetComponent<IInteractable>() != null)
+			{
+				var interactable = interactionRayHit.collider.gameObject.GetComponent<IInteractable>();
+				interactable.Hover();
+			}
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+		{
+			if(Physics.Raycast(interactionRay, out interactionRayHit, interactionRayDistance ))
+			{
+				if (interactionRayHit.collider.gameObject.GetComponent<IInteractable>() != null)
+				{
+					var interactable = interactionRayHit.collider.gameObject.GetComponent<IInteractable>();
+					interactable.Interact(transform);
+				} //Check other interactables here
+			}
+		}
     }
 
     void TryJump()
