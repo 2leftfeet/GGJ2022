@@ -121,12 +121,15 @@ public class PlayerMovement : MonoBehaviour
                 vel.y = 0;
                 body.velocity = vel;
             }
+            tryJumpNextPhysicsFrame = false;
         }
 
     }
 
     void LateUpdate()
     {
+        CameraLook();
+
         interactionRay = new Ray(playerCamera.position, playerCamera.forward);
 
         if(Physics.Raycast(interactionRay, out interactionRayHit, interactionRayDistance))
@@ -155,6 +158,8 @@ public class PlayerMovement : MonoBehaviour
         tryJumpNextPhysicsFrame = true;
     }
 
+
+
     void CameraLook()
     {
         rotation.x += Input.GetAxis(xAxis) * sensitivity;
@@ -163,7 +168,8 @@ public class PlayerMovement : MonoBehaviour
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
 		var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
-        transform.localRotation = xQuat;
+        //transform.localRotation = xQuat;
+        body.MoveRotation(xQuat);
         playerCamera.localRotation = yQuat;
     }
 
@@ -179,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isNearWall = true;
             awayFromClosestWall = transform.position - other.ClosestPointOnBounds(transform.position);
+            awayFromClosestWall.y = 0f;
         }
     }
 
