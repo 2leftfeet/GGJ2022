@@ -13,4 +13,12 @@ public class PlayerHealth : Health
         base.AddHealth(amount);
         GameEvents.current.PlayerAddHealthEvent();
     }
+
+    public override void CheckForDeath()
+    {
+        if (healthAmount <= 0)
+        {
+            GameEvents.current.PlayerDeathEvent();
+        }
+    }
 }
