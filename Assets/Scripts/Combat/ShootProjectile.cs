@@ -14,8 +14,12 @@ public class ShootProjectile : MonoBehaviour
     [SerializeField] float reloadTime = 0.3f;
     [SerializeField] DaggerProjectile projectile;
     [SerializeField] Transform spawnTransform;
-    [SerializeField] Transform knifeEquipped;
-    [SerializeField] float knifeLoweredByAmount = 0.6f;
+    [SerializeField] Transform daggerEquipped;
+    [SerializeField] float daggerLoweredByAmount = 0.6f;
+    [SerializeField] Transform propDaggerPrefab;
+    [SerializeField] int maxPropDaggerCount;
+
+    Queue<Transform> propDaggers;
 
     float startingKnifeY;
     float loweredKnifeY;
@@ -25,8 +29,10 @@ public class ShootProjectile : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerHealth = GetComponent<PlayerHealth>();
 
-        startingKnifeY = knifeEquipped.localPosition.y;
-        loweredKnifeY = startingKnifeY - knifeLoweredByAmount;
+        startingKnifeY = daggerEquipped.localPosition.y;
+        loweredKnifeY = startingKnifeY - daggerLoweredByAmount;
+
+        propDaggers = new Queue<Transform>();
     }
 
     void Update()
@@ -40,10 +46,10 @@ public class ShootProjectile : MonoBehaviour
                 canShoot = true;
             }
 
-            Vector3 knifePosition = knifeEquipped.localPosition;
+            Vector3 knifePosition = daggerEquipped.localPosition;
             knifePosition.y = Mathf.Lerp(loweredKnifeY, startingKnifeY, reloadTimer/reloadTime);
 
-            knifeEquipped.localPosition = knifePosition;
+            daggerEquipped.localPosition = knifePosition;
         }
     }
 
@@ -56,6 +62,7 @@ public class ShootProjectile : MonoBehaviour
 
             DaggerProjectile newProj = Instantiate(projectile, spawnTransform.position, spawnTransform.rotation);
             newProj.author = playerHealth;
+            newProj.launchPos = spawnTransform.position;
         }
     }
 
@@ -68,5 +75,21 @@ public class ShootProjectile : MonoBehaviour
     {
         playerInput.HoldPrimaryAttack -= TryShoot;
     }
+
+    public void SpawnPropKnifeAtCollision(Vector3 position, Vector3 launchPosition){
+        if(propDaggers.Count < maxPropDaggerCount)
+        {
+            Transform newDagger = Instantiate(propDaggerPrefab, position, Quaternion.LookRotation(launchPosition - position));
+            propDaggers.Enqueue(newDagger);
+        }
+        else
+        {
+            Transform oldDagger = propDaggers.Dequeue();
+            oldDagger.position = position;
+            oldDagger.rotation = Quaternion.LookRotation(launchPosition - position);
+            propDaggers.Enqueue(oldDagger);
+        }
+    }
+
 
 }

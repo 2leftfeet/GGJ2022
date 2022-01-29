@@ -8,14 +8,17 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody body;
     float playerHeight;
     bool isGrounded;
+    bool isNearWall;
     Vector2 rotation;
     const string xAxis = "Mouse X"; //Avoid generating garbag
 	const string yAxis = "Mouse Y";
     
     Vector3 velocity;
     Vector3 targetVelocity;
+    Vector3 awayFromClosestWall;
 
     [SerializeField] LayerMask groundLayermask = default;
+    [SerializeField] LayerMask wallLayermask = default;
     [SerializeField] Transform playerCamera;
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] float maxAcceleration = 80f;
@@ -23,8 +26,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float additionalGravity = 10f;
     [SerializeField] float jumpForce = 30f;
     [SerializeField] float sensitivity = 2f;
+    [SerializeField] float wallJumpCooldown;
 
     bool tryJumpNextPhysicsFrame = false;
+    bool canWallJump = true;
+    float wallJumpWaitTimer = 0f;
+
 
     void OnEnable()
     {
@@ -55,6 +62,16 @@ public class PlayerMovement : MonoBehaviour
         targetVelocity = transform.TransformDirection(targetVelocity);
 
         CameraLook();
+
+        if(!canWallJump)
+        {
+            wallJumpWaitTimer += Time.deltaTime;
+            if(wallJumpWaitTimer > wallJumpCooldown)
+            {
+                canWallJump = true;
+                wallJumpWaitTimer = 0f;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -82,11 +99,24 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector3(velocity.x, body.velocity.y, velocity.z);
         //body.velocity = new Vector3(targetVelocity.x, body.velocity.y, targetVelocity.z);
 
-        if(tryJumpNextPhysicsFrame && isGrounded)
+        if(tryJumpNextPhysicsFrame)
         {
-            body.AddForce(Vector3.up * jumpForce);
-            tryJumpNextPhysicsFrame = false;
-            isGrounded = false;
+            if(isGrounded)
+            {
+                body.AddForce(Vector3.up * jumpForce);
+                tryJumpNextPhysicsFrame = false;
+                isGrounded = false;
+            }
+            else if(isNearWall && canWallJump)
+            {
+                body.AddForce(Vector3.up * jumpForce);
+                body.AddForce(awayFromClosestWall.normalized * jumpForce);
+                tryJumpNextPhysicsFrame = false;
+                canWallJump = false;
+                Vector3 vel = body.velocity;
+                vel.y = 0;
+                body.velocity = vel;
+            }
         }
 
     }
@@ -112,5 +142,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, transform.position + targetVelocity);
         Gizmos.DrawLine(transform.position, transform.position + velocity);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(wallLayermask == (wallLayermask | (1 << other.gameObject.layer)))
+        {
+            isNearWall = true;
+            awayFromClosestWall = transform.position - other.ClosestPointOnBounds(transform.position);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        isNearWall = false;
     }
 }

@@ -40,7 +40,7 @@ public class PlayerInput : MonoBehaviour
 
         directionalInput = new Vector3(horizontal, vertical);
 
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             HoldJump();
         }
