@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8887590930016501560}
   - component: {fileID: 2585372803429315988}
   - component: {fileID: 5794083263598940282}
-  - component: {fileID: 7439676672229602240}
   m_Layer: 0
   m_Name: Sigil
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7439676672229602240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802738430284730138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 242598c6decc95c438a08fec534a6cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _DEBUG_PLAYER_LOCATION: {fileID: 0}
 --- !u!1 &2151028711959543393
 GameObject:
   m_ObjectHideFlags: 0
