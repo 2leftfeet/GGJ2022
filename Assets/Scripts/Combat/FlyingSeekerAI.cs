@@ -17,12 +17,15 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     [SerializeField] float damagePushForce = 50f;
 
     bool isActive = true;
+    float noiseOffset;
 
 
     void Start()
     {
         playerT = FindObjectOfType<PlayerMovement>().transform;
         body = GetComponent<Rigidbody>();
+
+        noiseOffset = Random.Range(0f, 10000f);
     }
 
     void FixedUpdate()
@@ -42,9 +45,9 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
                 playerT.GetComponent<Rigidbody>().AddForce(Vector3.up * damagePushForce);
             }
 
-            float noiseX = Mathf.PerlinNoise(0.5f, Time.time);
-            float noiseY = Mathf.PerlinNoise(5.5f, Time.time);
-            float noiseZ = Mathf.PerlinNoise(10.5f, Time.time);
+            float noiseX = Mathf.PerlinNoise(0.5f, Time.time + noiseOffset);
+            float noiseY = Mathf.PerlinNoise(5.5f, Time.time + noiseOffset);
+            float noiseZ = Mathf.PerlinNoise(10.5f, Time.time + noiseOffset);
 
             Vector3 noiseDir = new Vector3(noiseX, noiseY, noiseZ);
             noiseDir = noiseDir.normalized * noiseForceStrength;

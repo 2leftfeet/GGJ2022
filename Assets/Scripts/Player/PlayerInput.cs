@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        LockMouse();
     }
 
     void Update()
@@ -55,4 +55,14 @@ public class PlayerInput : MonoBehaviour
             OnInteract();
         }
     }
+
+    public void UnlockMouse() {
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
+
+	public void LockMouse() {
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
 }
