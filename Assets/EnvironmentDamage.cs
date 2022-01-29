@@ -40,7 +40,10 @@ public class EnvironmentDamage : MonoBehaviour
             var health = col.GetComponent<Health>();
             if(health)
             {
-                health.ReduceHealth(damage);
+                if(health.vulnerability == VulnerableTo.All || (int)damageType == (int)health.vulnerability)
+                {
+                    health.ReduceHealth(damage);
+                }
             }
 
             var damageShare = col.GetComponent<DamageShare>();

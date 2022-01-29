@@ -11,10 +11,14 @@ public class DamageShareHealth : Health
         damageShare = GetComponent<DamageShare>();
     }
 
-    public override void ReduceHealth(int amount, Health author)
+    public override bool ReduceHealth(int amount, DamageType damageType, Health author)
     {
+        if(vulnerability != VulnerableTo.All && (int)damageType != (int)vulnerability)
+            return false;
+
         if(author) damageShare.ShareDamageWithAuthor(amount, author);
         healthAmount -= amount;
         CheckForDeath();
+        return true;
     }
 }

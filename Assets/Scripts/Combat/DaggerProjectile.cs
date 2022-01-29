@@ -34,10 +34,12 @@ public class DaggerProjectile : MonoBehaviour
         var hitHealth = other.gameObject.GetComponent<Health>();
         if(hitHealth && hitHealth.healthAmount > 0)
         {
-            hitHealth.ReduceHealth(daggerDamage, author);
+            if(hitHealth.ReduceHealth(daggerDamage, author))
+            {
+                Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
+                Destroy(this.gameObject);
+            }
             //if(author) author.ReduceHealth(daggerDamage);
-            Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
-            Destroy(this.gameObject);
         }
 
         if( groundLayer == (groundLayer | (1 << other.gameObject.layer)) )
