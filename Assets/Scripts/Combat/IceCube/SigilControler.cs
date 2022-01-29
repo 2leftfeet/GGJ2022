@@ -6,10 +6,11 @@ public class SigilControler : MonoBehaviour
 {
     StateAI currentState;
     float rotationSpeed = 1f;
+    float sigilRotationSpeed = 20f;
     float bobingMultiplier = 0.005f;
     Vector3 clockwiseRotation;
     static Vector3 correctFaceDirectionCorrection = new Vector3(90f, 0f, 0f);
-
+    public bool isAlive = true;
 
     private Transform playerPosition;
     public Transform PlayerPosition { get => playerPosition; set => playerPosition = value; }
@@ -25,22 +26,25 @@ public class SigilControler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        switch (currentState)
+        if (isAlive)
         {
-            case StateAI.idle:
-                Idling();
-            break;
-            case StateAI.targeting:
-                Targeting();
-                break;
-            case StateAI.attacking:
-                Attacking();
-                break;
-            case StateAI.waiting:
-                Waiting();
-                break;
-            default:
-                break;
+            switch (currentState)
+            {
+                case StateAI.idle:
+                    Idling();
+                    break;
+                case StateAI.targeting:
+                    Targeting();
+                    break;
+                case StateAI.attacking:
+                    Attacking();
+                    break;
+                case StateAI.waiting:
+                    Waiting();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -57,7 +61,7 @@ public class SigilControler : MonoBehaviour
 
         Vector3 direction = playerPosition.transform.position - transform.position;
         Quaternion toRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(correctFaceDirectionCorrection);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 0.03f * Time.time);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, sigilRotationSpeed * Time.fixedDeltaTime);
 
         ChangeScaleSin(50f, 0.01f);
     }
