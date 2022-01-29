@@ -3,6 +3,12 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int healthAmount;
+    IDeadable owner;
+
+    void Awake()
+    {
+        owner = GetComponent<IDeadable>();
+    }
 
     public virtual void ReduceHealth(int amount)
     {
@@ -20,7 +26,7 @@ public class Health : MonoBehaviour
     {
         if (healthAmount <= 0)
         {
-            Debug.Log("I'm Dead");
+            owner.OnDeath();
         }
     }
 }

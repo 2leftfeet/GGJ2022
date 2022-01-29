@@ -5,20 +5,20 @@ public class PlayerHealth : Health
     public override void ReduceHealth(int amount)
     {
         base.ReduceHealth(amount);
-        GameEvents.current.PlayerTakeDamageEvent();
+        if(GameEvents.current) GameEvents.current.PlayerTakeDamageEvent();
     }
 
     public override void AddHealth(int amount)
     {
         base.AddHealth(amount);
-        GameEvents.current.PlayerAddHealthEvent();
+        if(GameEvents.current) GameEvents.current.PlayerAddHealthEvent();
     }
 
     public override void CheckForDeath()
     {
         if (healthAmount <= 0)
         {
-            GameEvents.current.PlayerDeathEvent();
+            if(GameEvents.current) GameEvents.current.PlayerDeathEvent();
         }
     }
 }

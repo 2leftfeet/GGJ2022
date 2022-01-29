@@ -7,8 +7,13 @@ public class DaggerProjectile : MonoBehaviour
     [SerializeField] float projectileSpeed;
     [SerializeField] float spinSpeed;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] int daggerDamage;
+    [SerializeField] GameObject bloodVFX;
 
     Rigidbody body;
+
+
+    public Health author;
 
     void Awake()
     {
@@ -17,13 +22,25 @@ public class DaggerProjectile : MonoBehaviour
         body.angularVelocity = transform.right * spinSpeed;
     }
 
-   /* void OnCollisionEnter(Collision other)
+    void Start()
     {
-        if( groundLayer == (groundLayer | (1 << other.gameObject.layer)) )
-        {
-            Physics.IgnoreCollision(GetComponent<Collider>(), other.collider, true);
-            body.isKinematic = true;
-        }
+        Physics.IgnoreCollision(author.GetComponent<Collider>(), GetComponent<Collider>(), true);
+    }
 
-    }*/
+    void OnCollisionEnter(Collision other)
+    {
+        // if( groundLayer == (groundLayer | (1 << other.gameObject.layer)) )
+        // {
+        //     Physics.IgnoreCollision(GetComponent<Collider>(), other.collider, true);
+        //     body.isKinematic = true;
+        // }
+        var hitHealth = other.gameObject.GetComponent<Health>();
+        if(hitHealth && hitHealth.healthAmount > 0)
+        {
+            hitHealth.ReduceHealth(daggerDamage);
+            if(author) author.ReduceHealth(daggerDamage);
+            Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
+            Destroy(this.gameObject);
+        }
+    }
 }

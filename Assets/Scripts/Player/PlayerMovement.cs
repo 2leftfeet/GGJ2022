@@ -18,9 +18,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundLayermask = default;
     [SerializeField] Transform playerCamera;
     [SerializeField] float maxSpeed = 10f;
+    [SerializeField] float maxAcceleration = 80f;
+    [SerializeField] float midAirAccelerationModifier = 0.6f;
     [SerializeField] float additionalGravity = 10f;
     [SerializeField] float jumpForce = 30f;
     [SerializeField] float sensitivity = 2f;
+
+    bool tryJumpNextPhysicsFrame = false;
 
     void OnEnable()
     {
@@ -59,20 +63,37 @@ public class PlayerMovement : MonoBehaviour
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
         if(Physics.Raycast(groundCheckRay, out hit, playerHeight, groundLayermask))
         {
-            isGrounded = hit.distance < (playerHeight/2f + 0.05f);
+            isGrounded = hit.distance < (playerHeight/2f + 0.01f);
         }
 
-        body.velocity = new Vector3(targetVelocity.x, body.velocity.y, targetVelocity.z);
+        velocity = body.velocity;
+        velocity.y = 0f;
+
+        Vector3 velocityDir = targetVelocity.normalized;
+
+        float maxSpeedChange = (maxAcceleration * Time.deltaTime);
+        if(!isGrounded)
+        {
+            maxSpeedChange *= midAirAccelerationModifier;
+        }
+
+        velocity = Vector3.MoveTowards(velocity, targetVelocity, maxSpeedChange);
+
+        body.velocity = new Vector3(velocity.x, body.velocity.y, velocity.z);
+        //body.velocity = new Vector3(targetVelocity.x, body.velocity.y, targetVelocity.z);
+
+        if(tryJumpNextPhysicsFrame && isGrounded)
+        {
+            body.AddForce(Vector3.up * jumpForce);
+            tryJumpNextPhysicsFrame = false;
+            isGrounded = false;
+        }
 
     }
 
     void TryJump()
     {
-        if(isGrounded)
-        {
-            isGrounded = false;
-            body.AddForce(transform.up * jumpForce);
-        }
+        tryJumpNextPhysicsFrame = true;
     }
 
     void CameraLook()
