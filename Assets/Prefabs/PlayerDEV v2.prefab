@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 1879855830042385690}
   - component: {fileID: 1879855830042385699}
   - component: {fileID: 1879855830042385698}
+  - component: {fileID: 1705625924}
   m_Layer: 0
   m_Name: PlayerDEV v2
   m_TagString: Untagged
@@ -392,6 +393,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 100
+  vulnerability: 0
+--- !u!114 &1705625924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879855830042385691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be57dde65bb7801449f92228f9c9d44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageShareRange: 10
+  damageShareProjectilePhysical: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  damageShareProjectileWater: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  damageShareProjectileFire: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+    type: 3}
+  originalHealth: {fileID: 0}
 --- !u!1001 &1879855828727651727
 PrefabInstance:
   m_ObjectHideFlags: 0

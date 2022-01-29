@@ -48,7 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damageValue: 10
-  speed: 30
+  speed: 15
+  randomDirStrengthStart: 5
+  randomDirDecreaseSpeed: 2
 --- !u!135 &265058043724606248
 SphereCollider:
   m_ObjectHideFlags: 0
