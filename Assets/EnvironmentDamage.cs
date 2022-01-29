@@ -42,7 +42,7 @@ public class EnvironmentDamage : MonoBehaviour
             {
                 if(health.vulnerability == VulnerableTo.All || (int)damageType == (int)health.vulnerability)
                 {
-                    health.ReduceHealth(damage);
+                    health.ReduceHealth(damage, damageType);
                 }
             }
 
