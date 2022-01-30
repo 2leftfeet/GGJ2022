@@ -22,7 +22,12 @@ public class DamageShareProjectile : MonoBehaviour
     }
     void Update()
     {
-        if(!target) Destroy(gameObject);
+        if(!target)
+        { 
+            Destroy(gameObject);
+            return;
+        }
+            
 
         Vector3 dirToTarget = target.transform.position - transform.position;
         dirToTarget = dirToTarget.normalized;
