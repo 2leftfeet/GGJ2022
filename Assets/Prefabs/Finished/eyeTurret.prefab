@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd353fceaedc4184ca588a08d2bc9211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minShootingdistance: 30
+  minShootingdistance: 70
   eyeLookSpeed: 20
 --- !u!114 &700403200750906545
 MonoBehaviour:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 15
+  healthAmount: 5
   vulnerability: 2
 --- !u!114 &2825192525279271004
 MonoBehaviour:
