@@ -86,6 +86,7 @@ MonoBehaviour:
   damageAmount: 30
   damagePushForce: 500
   damagePushForceUpwards: 20
+  startFollowRange: 50
 --- !u!114 &1112201256365215132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
-  healAmount: 10
+  healAmount: 15
   m_renderer: {fileID: 1778570592351566381}
   gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!114 &1112201256365215134
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
+  healthAmount: 10
   vulnerability: 2
 --- !u!1001 &1112201255212590761
 PrefabInstance:

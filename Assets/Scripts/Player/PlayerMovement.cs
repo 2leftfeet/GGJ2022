@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
         if(Physics.Raycast(groundCheckRay, out hit, playerHeight, groundLayermask))
         {
-            isGrounded = hit.distance < (playerHeight/2f + 0.01f);
+            isGrounded = hit.distance < (playerHeight/2f + 0.05f);
         }
 
         velocity = body.velocity;
