@@ -78,6 +78,11 @@ public class PlayerInput : MonoBehaviour
         {
             OnInteract();
         }
+        
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            GameEvents.current.SceneRestartEvent();
+        }
     }
 
     public void UnlockMouse() {
