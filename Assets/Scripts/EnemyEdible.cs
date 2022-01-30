@@ -46,7 +46,7 @@ public class EnemyEdible : MonoBehaviour, IInteractable
             health.AddHealth(healAmount);
             Destroy(gameObject);
             GameEvents.current.ConsumeUIExitEvent();
-            Destroy(Instantiate(gibsVFX, transform.position, Quaternion.identity), 10f);
+            Instantiate(gibsVFX, transform.position, Quaternion.identity);
             
         }
     }
