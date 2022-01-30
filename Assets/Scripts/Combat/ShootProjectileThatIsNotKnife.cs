@@ -9,7 +9,7 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
     [SerializeField] float projectileSpeed = 100f;//how fast are projectiles moving
     [SerializeField] int damage = 15;           //how much Damage are projectiles doing
     [SerializeField] Transform spawnLocation;   // where to spawn this if not selected automaticlly takes this.transform
-    [SerializeField] Transform target;          // a target that we are hunting
+    [SerializeField] public Transform target;          // a target that we are hunting
     [SerializeField] bool spawnProjectileEarly = false; // do we hover projectile before shooting 
     [SerializeField] DamageShareHealth AuthorsHealth; // do we hover projectile before shooting 
 
@@ -60,7 +60,6 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
     {
         if(Time.time - releadTimer > attackSpeed)
         {
-            Debug.Log("if am read");
             readyToShoot = true;
         }
     }
