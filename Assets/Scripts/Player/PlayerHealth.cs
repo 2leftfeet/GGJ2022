@@ -6,7 +6,6 @@ public class PlayerHealth : Health
     {
         base.ReduceHealth(amount, damageType, author);
         GameEvents.current.PlayerTakeDamageEvent();
-
         return true;
     }
 
