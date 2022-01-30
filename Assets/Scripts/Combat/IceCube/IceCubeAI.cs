@@ -207,7 +207,6 @@ public class IceCubeAI : MonoBehaviour, IDeadable
                 box.size = new Vector3(6f, 6f, 1f);
             }
         }
-        sigilController.transform.rotation = Quaternion.Euler(new Vector3(90f, 0f, 0f));
         
         //Decrease radius so it clips into the ground after falling
         Destroy(GetComponent<Health>());
@@ -224,7 +223,6 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     private void OnTriggerEnter(Collider other)
     {
         if (isAlive) {
-            Debug.Log(other.gameObject.layer);
             if (wallLayer == (wallLayer | (1 << other.gameObject.layer)))
             {
                 CubeLaunched = false;
@@ -237,9 +235,6 @@ public class IceCubeAI : MonoBehaviour, IDeadable
             if (health && currentState == StateAI.attacking)
             {
                 health.ReduceHealth(myHealth.healthAmount);
-                //  health.ReduceHealth(1, new Health(ICECUBE))
-
-
             }
         }
     }
