@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class MainMenuButtons : MonoBehaviour
     BoxCollider buttonCollider;
     [SerializeField] buttonType thisButton;
     [SerializeField] GameObject[] skulls;
+    [SerializeField] GameObject levelSelect;
+
+    bool inSelectLevel = false;
 
     private void Start()
     {
         skulls[0].SetActive(false);
         skulls[1].SetActive(false);
+
     }
 
     private void Update()
@@ -21,33 +26,41 @@ public class MainMenuButtons : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            
 
-            if (Physics.Raycast(ray, out hit))
+        if (!levelSelect.activeInHierarchy)
         {
-            if (hit.transform == this.transform)
+            if (Physics.Raycast(ray, out hit))
             {
-                skulls[0].SetActive(true);
-                skulls[1].SetActive(true);
-                if (Input.GetMouseButtonDown(0))
+                if (hit.transform == this.transform)
                 {
-                    switch (thisButton)
+                    skulls[0].SetActive(true);
+                    skulls[1].SetActive(true);
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        case buttonType.Play:
-                            Debug.Log("Click Play");
-                            //start 1st level
-                            break;
-                        case buttonType.Select:
-                            Debug.Log("Click Select");
-                            //lvl select screen
-                            break;
-                        case buttonType.Quit:
-                            Debug.Log("Click Quit");
-                            Application.Quit();
-                            break;
-                        default:
-                            break;
+                        switch (thisButton)
+                        {
+                            case buttonType.Play:
+                                Debug.Log("Click Play");
+                                SceneManager.LoadScene(1);
+                                break;
+                            case buttonType.Select:
+                                levelSelect.SetActive(true);
+                                inSelectLevel = true;
+                                //lvl select screen
+                                break;
+                            case buttonType.Quit:
+                                Debug.Log("Click Quit");
+                                Application.Quit();
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                }
+                else
+                {
+                    skulls[0].SetActive(false);
+                    skulls[1].SetActive(false);
                 }
             }
             else
@@ -56,11 +69,11 @@ public class MainMenuButtons : MonoBehaviour
                 skulls[1].SetActive(false);
             }
         }
-        else
-        {
-            skulls[0].SetActive(false);
-            skulls[1].SetActive(false);
-        }
+    }
+    public void ExitLevelSelect()
+    {
+        levelSelect.SetActive(false);
+        inSelectLevel = false;
     }
 
 }
