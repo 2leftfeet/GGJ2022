@@ -39,10 +39,21 @@ public class UIManager : MonoBehaviour
         levelCompleteUI.gameObject.SetActive(true);
     }
 
+    void CheckForNextLevel()
+    {
+        if (levelCompleteUI.gameObject)
+        {
+            
+        }
+    }
+
     void OpenPauseMenu()
     {
-        pauseUI.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        if (!levelCompleteUI.gameObject)
+        {
+            pauseUI.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     void ClosePauseMenu()
