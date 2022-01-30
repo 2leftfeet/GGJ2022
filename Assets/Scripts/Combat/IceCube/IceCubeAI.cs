@@ -18,6 +18,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     [SerializeField] float attackLength = 2f;
     [SerializeField] float rotationSpeed = 10f;
     [SerializeField] float healthDeformationSpeed = 0.75f;
+    [SerializeField] float agroRange = 30f;
     bool didNotLosePlayer = false;
     bool isAlive = true;
     MeshRenderer meshRenderer;
@@ -45,7 +46,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     public Transform PlayerLocation;
 
     enum attacktype {slide, shoot};
-    static attacktype[] attackOrder = {attacktype.slide, attacktype.shoot, attacktype.shoot};
+    [SerializeField] attacktype[] attackOrder = {attacktype.slide, attacktype.shoot, attacktype.shoot};
 
     attacktype nextAttack;
     int nextAttackCounter = 0;
@@ -132,7 +133,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     {
         if (isAlive)
         {
-            if (Physics.Raycast(this.transform.position, PlayerLocation.position - this.transform.position, out hit))
+            if (Physics.Raycast(this.transform.position, PlayerLocation.position - this.transform.position, out hit, agroRange))
             {
 
                 // if i see player
