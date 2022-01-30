@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class MainMenuButtons : MonoBehaviour
                     {
                         case buttonType.Play:
                             Debug.Log("Click Play");
-                            //start 1st level
+                            SceneManager.LoadScene(1);
                             break;
                         case buttonType.Select:
                             Debug.Log("Click Select");
