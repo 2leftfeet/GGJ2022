@@ -84,12 +84,12 @@ public class PlayerInput : MonoBehaviour
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
         collectMouseInput = false;
+        mouseInput = Vector2.zero;
 	}
 
 	public void LockMouse() {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
-        mouseInput = Vector2.zero;
         collectMouseInput = true;
 	}
 }
