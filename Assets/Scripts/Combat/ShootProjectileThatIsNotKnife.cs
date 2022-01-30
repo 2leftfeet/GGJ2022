@@ -63,7 +63,6 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
         if(ProjectileSpawned)
         {
             chargeupTimer += Time.deltaTime;
-            Debug.Log("making projectile look at " + target.position);
             latestProjectile.transform.LookAt(target.position);
         }
 

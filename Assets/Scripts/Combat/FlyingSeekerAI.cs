@@ -116,7 +116,6 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
         //Decrease radius so it clips into the ground after falling
         //GetComponent<SphereCollider>().radius *= 0.5f;
         Destroy(GetComponent<Health>());
-        Debug.Log("flier die");
         body.useGravity = true;
         
         body.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;

@@ -58,7 +58,6 @@ public class TurretAI : MonoBehaviour, IDeadable
         shootyPart.StopShooting = true;
         //Decrease radius so it clips into the ground after falling
         Destroy(GetComponent<Health>());
-        Debug.Log("eyeTurret die, RIP");
         edible.enabled = true;
         rigidbody.isKinematic = false;
         rigidbody.useGravity = true;

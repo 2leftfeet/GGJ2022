@@ -265,7 +265,6 @@ public class IceCubeAI : MonoBehaviour, IDeadable
         
         //Decrease radius so it clips into the ground after falling
         Destroy(GetComponent<Health>());
-        Debug.Log("IceCube die, RIP");
 
         SigilEdible.enabled = true;
         SigilCollider.enabled = true;

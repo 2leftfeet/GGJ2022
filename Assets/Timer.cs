@@ -24,7 +24,6 @@ public class Timer : MonoBehaviour
     void CheckHighScore()
     {
         m_ID = "Level " + SceneManager.GetActiveScene().buildIndex.ToString();
-        Debug.Log(m_Time);
         if (PlayerPrefs.HasKey(m_ID))
         {
             float bestTime = PlayerPrefs.GetFloat(m_ID);
