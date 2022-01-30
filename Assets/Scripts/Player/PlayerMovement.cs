@@ -185,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         if(wallLayermask == (wallLayermask | (1 << other.gameObject.layer)))
         {
             isNearWall = true;
-            awayFromClosestWall = transform.position - other.ClosestPointOnBounds(transform.position);
+            awayFromClosestWall = transform.position - other.ClosestPoint(transform.position);
             awayFromClosestWall.y = 0f;
         }
     }
