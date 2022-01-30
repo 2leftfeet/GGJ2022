@@ -232,7 +232,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     {
         isAlive = false;
         sigilController.isAlive = false;
-
+        transform.root.tag = "Untagged";
         BoxCollider[] colliders = GetComponents<BoxCollider>();
         foreach (BoxCollider box in colliders)
         {

@@ -53,6 +53,7 @@ public class TurretAI : MonoBehaviour, IDeadable
     }
     public void OnDeath()
     {
+        transform.tag = "Untagged";
         isAlive = false;
         shootyPart.StopShooting = true;
         //Decrease radius so it clips into the ground after falling
