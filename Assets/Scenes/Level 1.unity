@@ -4543,20 +4543,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580885597, guid: 1e10590713121724db3f1e82ad6152ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 712967657, guid: 1e10590713121724db3f1e82ad6152ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630685520, guid: 1e10590713121724db3f1e82ad6152ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 129740369131996969, guid: 1e10590713121724db3f1e82ad6152ad,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740964667081543296, guid: 1e10590713121724db3f1e82ad6152ad,
-        type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740964667081543296, guid: 1e10590713121724db3f1e82ad6152ad,
-        type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.589
       objectReference: {fileID: 0}
     - target: {fileID: 1740964667081543298, guid: 1e10590713121724db3f1e82ad6152ad,
         type: 3}
@@ -4667,11 +4669,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740964667081543302, guid: 1e10590713121724db3f1e82ad6152ad,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4568493564065407305, guid: 1e10590713121724db3f1e82ad6152ad,
         type: 3}
