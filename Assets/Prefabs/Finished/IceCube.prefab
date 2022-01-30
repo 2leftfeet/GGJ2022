@@ -615,6 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthAmount: 50
   vulnerability: 1
+  fireEffect: {fileID: 0}
 --- !u!114 &198183134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +648,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.227
   m_Pitch: 1
   Loop: 0
   Mute: 0
