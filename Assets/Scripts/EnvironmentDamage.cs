@@ -9,7 +9,7 @@ public class EnvironmentDamage : MonoBehaviour
 
     [SerializeField] int damage;
     [SerializeField] float damageInterval = 0.5f;
-    [SerializeField] DamageType damageType;
+    [SerializeField] public DamageType damageType;
 
     float damageTimer = 0f;
 
