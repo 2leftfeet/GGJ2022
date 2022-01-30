@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        ResetTimeScale();
         GameEvents.current.onPlayerDeathEvent += OpenRestartLevelUI;
         GameEvents.current.onLevelFinishEvent += OpenNextLevelUI;
         GameEvents.current.onPauseMenuEvent += OpenPauseMenu;
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour
     void OpenNextLevelUI()
     {
         levelCompleteUI.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void CheckForNextLevel()
