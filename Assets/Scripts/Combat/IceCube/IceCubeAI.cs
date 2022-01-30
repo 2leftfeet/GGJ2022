@@ -78,6 +78,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
 
     private void FixedUpdate()
     {
+        Debug.Log("nextAttack");
         if (isAlive)
         {
             if (Mathf.Abs(rigidbody.velocity.x) > 1f || Mathf.Abs(rigidbody.velocity.z) > 1f)
