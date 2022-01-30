@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxAcceleration = 80f;
     [SerializeField] float midAirAccelerationModifier = 0.6f;
     [SerializeField] float additionalGravity = 10f;
-    [SerializeField] float jumpForce = 30f;
-    [SerializeField] float sensitivity = 2f;
+    [SerializeField] float jumpForce = 30f; 
+    public float sensitivity = 2f;
     [SerializeField] float wallJumpCooldown;
     [SerializeField] float interactionRayDistance = 2f;
 

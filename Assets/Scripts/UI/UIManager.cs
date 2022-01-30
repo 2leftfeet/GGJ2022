@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     void OpenRestartLevelUI()
     {
         restartUI.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void OpenNextLevelUI()

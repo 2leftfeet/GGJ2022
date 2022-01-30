@@ -13,7 +13,7 @@ public class DaggerProjectile : MonoBehaviour
     [SerializeField] GameObject fireAffinity;
     [SerializeField] GameObject waterAffinity;
     [SerializeField] float magicNumber;
-    
+    [SerializeField] GameObject audio;
 
     Rigidbody body;
     DamageType currentType = DamageType.Physical;
@@ -48,6 +48,8 @@ public class DaggerProjectile : MonoBehaviour
             if(hitHealth.ReduceHealth(daggerDamage, currentType, author))
             {
                 Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
+                if (audio)
+                    Destroy(Instantiate(audio, this.transform.position, this.transform.rotation), 1f);
                 Destroy(this.gameObject);
             }
             //if(author) author.ReduceHealth(daggerDamage);
