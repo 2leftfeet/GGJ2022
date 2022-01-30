@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &895572419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895572420}
+  - component: {fileID: 895572422}
+  - component: {fileID: 895572421}
+  m_Layer: 2
+  m_Name: PlayerKick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895572420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895572419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.479}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1879855830042385692}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &895572422
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895572419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &895572421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895572419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0864c5c512b11c44dbe9b60747cbebfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1224028238}
+  kickCooldown: 0.5
+  gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!1 &1879855828834886029
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +298,7 @@ Transform:
   m_Children:
   - {fileID: 1879855828834886034}
   - {fileID: 1879855828871592108}
+  - {fileID: 895572420}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -406,12 +468,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be57dde65bb7801449f92228f9c9d44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageShareRange: 10
-  damageShareProjectilePhysical: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+  damageShareRange: 30
+  damageShareProjectilePhysical: {fileID: 2484389312678582848, guid: 42d2514388e597a40be9436032175554,
     type: 3}
-  damageShareProjectileWater: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+  damageShareProjectileWater: {fileID: 527558483329396376, guid: 77adb258afea6644d9df882b9c16da5e,
     type: 3}
-  damageShareProjectileFire: {fileID: 265058043724606254, guid: 3879e511f0db33146977b7709bd5bb6d,
+  damageShareProjectileFire: {fileID: 4179198301667220225, guid: 153e1710698227146baecbb167dd15c2,
     type: 3}
   originalHealth: {fileID: 0}
 --- !u!1001 &1879855828727651727
@@ -421,6 +483,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1879855828834886034}
     m_Modifications:
+    - target: {fileID: -9165459409924853823, guid: 7234032e11d458f448ec38832993341d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7054fee3deb8fb64dbd7876a6001a9a1, type: 2}
     - target: {fileID: -8679921383154817045, guid: 7234032e11d458f448ec38832993341d,
         type: 3}
       propertyPath: m_RootOrder
