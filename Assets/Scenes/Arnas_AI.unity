@@ -172,7 +172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &115987612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &132728920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -366,7 +366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &140904055
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -451,6 +451,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5347504939798052906}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &198183133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 198183133, guid: 7ef70834e48beff4dba07c106a42bbaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5347504939798052906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203950580
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750258632}
+  - component: {fileID: 750258633}
   m_Layer: 2
   m_Name: LaunchPostitionR1
   m_TagString: Untagged
@@ -682,6 +695,28 @@ Transform:
   m_Father: {fileID: 198183130}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750258633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750258631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f7cf2740739bc46ac9b8dba035383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  projectile: {fileID: 7427374273893249666, guid: 26e0b11dcf4a3b649bd0cb0f60622beb,
+    type: 3}
+  projectileSpeed: 50
+  damage: 15
+  spawnLocation: {fileID: 0}
+  target: {fileID: 1727731179}
+  spawnProjectileEarly: 0
+  AuthorsHealth: {fileID: 198183133}
+  StopShooting: 1
 --- !u!1001 &844416882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1387907288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -977,6 +1012,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -87.922, z: 0}
+--- !u!23 &1425999842 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5794083263598940282, guid: 7ef70834e48beff4dba07c106a42bbaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 5347504939798052906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1425999844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1021,6 +1062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glowColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
   healAmount: 10
+  m_renderer: {fileID: 1425999842}
+  gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!1 &1441082712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f7cf2740739bc46ac9b8dba035383d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.4
+  attackSpeed: 1
   projectile: {fileID: 7427374273893249666, guid: 26e0b11dcf4a3b649bd0cb0f60622beb,
     type: 3}
   projectileSpeed: 50
@@ -1073,7 +1116,8 @@ MonoBehaviour:
   spawnLocation: {fileID: 1441082713}
   target: {fileID: 1727731179}
   spawnProjectileEarly: 0
-  StopShooting: 0
+  AuthorsHealth: {fileID: 198183133}
+  StopShooting: 1
 --- !u!1 &1474963985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474963986}
+  - component: {fileID: 1474963987}
   m_Layer: 2
   m_Name: LaunchPostitionR2
   m_TagString: Untagged
@@ -1105,6 +1150,28 @@ Transform:
   m_Father: {fileID: 198183130}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474963987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474963985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f7cf2740739bc46ac9b8dba035383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  projectile: {fileID: 7427374273893249666, guid: 26e0b11dcf4a3b649bd0cb0f60622beb,
+    type: 3}
+  projectileSpeed: 50
+  damage: 15
+  spawnLocation: {fileID: 0}
+  target: {fileID: 1727731179}
+  spawnProjectileEarly: 0
+  AuthorsHealth: {fileID: 198183133}
+  StopShooting: 1
 --- !u!1 &1695036117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695036118}
+  - component: {fileID: 1695036119}
   m_Layer: 2
   m_Name: LaunchPostitionL2
   m_TagString: Untagged
@@ -1136,6 +1204,28 @@ Transform:
   m_Father: {fileID: 198183130}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1695036119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695036117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f7cf2740739bc46ac9b8dba035383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  projectile: {fileID: 7427374273893249666, guid: 26e0b11dcf4a3b649bd0cb0f60622beb,
+    type: 3}
+  projectileSpeed: 50
+  damage: 15
+  spawnLocation: {fileID: 0}
+  target: {fileID: 1727731179}
+  spawnProjectileEarly: 0
+  AuthorsHealth: {fileID: 198183133}
+  StopShooting: 1
 --- !u!1 &1711023056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,13 +1646,33 @@ PrefabInstance:
       propertyPath: SigilRigidbody
       value: 
       objectReference: {fileID: 1425999844}
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: shooters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: shooters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1441082714}
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: shooters.Array.data[1]
+      value: 
+      objectReference: {fileID: 750258633}
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: shooters.Array.data[2]
+      value: 
+      objectReference: {fileID: 1695036119}
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: shooters.Array.data[3]
+      value: 
+      objectReference: {fileID: 1474963987}
     - target: {fileID: 198183133, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
       propertyPath: healthAmount
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 198183133, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
       propertyPath: vulnerability
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 198183134, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
       propertyPath: damageShareRange

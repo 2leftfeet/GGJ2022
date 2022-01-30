@@ -44,6 +44,16 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     [SerializeField]
     public Transform PlayerLocation;
 
+    enum attacktype {slide, shoot};
+    static attacktype[] attackOrder = {attacktype.slide, attacktype.shoot, attacktype.shoot};
+
+    attacktype nextAttack;
+    int nextAttackCounter = 0;
+
+    [SerializeField]
+    ShootProjectileThatIsNotKnife[] shooters;
+
+    bool lowHP = false;
     RaycastHit hit;
     int StartingHealth;
     private void Start()
@@ -68,21 +78,38 @@ public class IceCubeAI : MonoBehaviour, IDeadable
 
             if (currentState == StateAI.attacking && !CubeLaunched)
             {
+                
                 attackStart = Time.time;
 
-                CubeLaunched = true;
-                Vector3 velocity = rigidbody.velocity;
-                velocity = transform.forward * speed;
 
-                rigidbody.velocity = velocity;
+                CubeLaunched = true;
+                if (nextAttack == attacktype.slide)
+                {
+                    Vector3 velocity = rigidbody.velocity;
+                    velocity = transform.forward * speed;
+                    rigidbody.velocity = velocity;
+                }
+                if (nextAttack == attacktype.shoot)
+                {
+                    foreach (ShootProjectileThatIsNotKnife e in shooters)
+                    {
+                        e.StopShooting = false;
+                    }
+                }
+                
             }
             if (currentState == StateAI.attacking && CubeLaunched)
             {
                 if (Time.time - attackStart > attackLength)
                 {
                     CubeLaunched = false;
+                    foreach (ShootProjectileThatIsNotKnife e in shooters)
+                    {
+                        e.StopShooting = true;
+                    }
                     currentState = StateAI.idle;
                     sigilController.ChangeState(StateAI.idle);
+                    nextAttack = ChangeNextAttack();
                 }
             }
 
@@ -180,7 +207,9 @@ public class IceCubeAI : MonoBehaviour, IDeadable
             meshRenderer.enabled = false;
             rigidbody.isKinematic = true;
             rigidbody.useGravity = false;
- 
+            lowHP = true;
+
+
             damageShareHealth.vulnerability = VulnerableTo.All;
         }
         else if (!rigidbody.useGravity && percentage > 0.25f)
@@ -189,6 +218,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
             rigidbody.isKinematic = false;
             rigidbody.useGravity = true;
             meshRenderer.enabled = true;
+            lowHP = false;
             this.transform.localScale = Vector3.one * 0.5f;
             damageShareHealth.vulnerability = VulnerableTo.Fire;
         }
@@ -220,12 +250,24 @@ public class IceCubeAI : MonoBehaviour, IDeadable
         this.gameObject.SetActive(false);
     }
 
+    attacktype ChangeNextAttack()
+    {
+        if (nextAttackCounter > attackOrder.Length - 1)
+            nextAttackCounter = 0;
+        var answer = attackOrder[nextAttackCounter];
+        nextAttackCounter++;
+        if (lowHP)
+            return attacktype.shoot;
+        return answer;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (isAlive) {
             if (wallLayer == (wallLayer | (1 << other.gameObject.layer)))
             {
                 CubeLaunched = false;
+                nextAttack = ChangeNextAttack();
                 currentState = StateAI.idle;
                 sigilController.ChangeState(StateAI.idle);
             }
