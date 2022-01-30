@@ -64,7 +64,7 @@ public class SigilControler : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(correctFaceDirectionCorrection);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, sigilRotationSpeed * Time.fixedDeltaTime);
         }
-        ChangeScaleSin(50f, 0.01f);
+        ChangeScaleSin(20f, 0.01f);
     }
 
     void Attacking()
