@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
+    public GameObject[] enemies;
     void Start()
     {
         GameEvents.current.onSceneRestartEvent += ReloadLevel;
@@ -13,7 +14,7 @@ public class GameState : MonoBehaviour
 
     private void Update()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         int enemiesLeft = enemies.Length;
         if(enemiesLeft == 0)
             GameEvents.current.LevelFinishEvent();
