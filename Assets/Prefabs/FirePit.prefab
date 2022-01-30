@@ -1777,9 +1777,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 0}
-        key1: {r: 1, g: 0.6039734, b: 0, a: 0.53333336}
-        key2: {r: 1, g: 0.8135679, b: 0, a: 0.5686275}
-        key3: {r: 1, g: 0.56976867, b: 0, a: 0}
+        key1: {r: 1, g: 0.05869147, b: 0, a: 0.53333336}
+        key2: {r: 1, g: 0.057513814, b: 0, a: 0.5686275}
+        key3: {r: 1, g: 0.09962939, b: 0, a: 0}
         key4: {r: 1, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -1787,7 +1787,7 @@ ParticleSystem:
         ctime0: 0
         ctime1: 17348
         ctime2: 29105
-        ctime3: 41634
+        ctime3: 42212
         ctime4: 65535
         ctime5: 0
         ctime6: 0
@@ -1806,7 +1806,7 @@ ParticleSystem:
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 0}
-        key1: {r: 1, g: 0.7647059, b: 0, a: 0.5176471}
+        key1: {r: 1, g: 0.2643778, b: 0, a: 0.5176471}
         key2: {r: 1, g: 0.30980393, b: 0, a: 0.5019608}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

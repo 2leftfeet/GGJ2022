@@ -1323,7 +1323,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.6084906, g: 0.8235776, b: 1, a: 1}
+        key0: {r: 0.60784316, g: 1, b: 0.7798035, a: 1}
         key1: {r: 0.7783019, g: 0.9002359, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -6075,8 +6075,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.6392157, g: 0.8352942, b: 1, a: 0}
-        key1: {r: 0.87375396, g: 0.9372388, b: 0.990566, a: 1}
+        key0: {r: 0.6392157, g: 1, b: 0.7153313, a: 0}
+        key1: {r: 0.3915094, g: 1, b: 0.63828146, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -10833,8 +10833,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.7028302, g: 0.86627364, b: 1, a: 1}
-        key1: {r: 0.5896226, g: 0.81760997, b: 1, a: 0}
+        key0: {r: 0.25, g: 1, b: 0.30064726, a: 1}
+        key1: {r: 0.5882353, g: 1, b: 0.73080415, a: 0}
         key2: {r: 0.6462264, g: 0.84483606, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -10842,7 +10842,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 65150
+        ctime1: 64571
         ctime2: 65150
         ctime3: 0
         ctime4: 0
@@ -15613,8 +15613,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.6392157, g: 0.8352942, b: 1, a: 0}
-        key1: {r: 0.87375396, g: 0.9372388, b: 0.990566, a: 1}
+        key0: {r: 0.65685475, g: 1, b: 0.6392157, a: 0}
+        key1: {r: 0.8745098, g: 0.99215686, b: 0.9565457, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
