@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     void OpenPauseMenu()
     {
-        if (!levelCompleteUI.gameObject)
+        if (!levelCompleteUI.gameObject.activeInHierarchy)
         {
             pauseUI.gameObject.SetActive(true);
             Time.timeScale = 0;
