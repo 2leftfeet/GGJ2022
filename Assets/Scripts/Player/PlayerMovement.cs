@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     Ray interactionRay;
     RaycastHit interactionRayHit;
 
+    public AudioSource steppingSounds;
+    public AudioSource jumpingSound;
+
+    float steppingSoundsStartVolume;
 
     void OnEnable()
     {
@@ -52,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody>();
 
         playerHeight = GetComponent<CapsuleCollider>().height;
+
+        steppingSoundsStartVolume = steppingSounds.volume;
     }
 
     void Update()
@@ -64,7 +70,17 @@ public class PlayerMovement : MonoBehaviour
         //change velocity vector from world space to local space
         targetVelocity = transform.TransformDirection(targetVelocity);
 
-        //CameraLook();
+        
+
+        if(isGrounded && body.velocity.magnitude > 1f)
+        {
+            steppingSounds.volume = steppingSoundsStartVolume;
+        }
+        else
+        {
+            steppingSounds.volume -= Time.deltaTime;
+        }
+
 
         if(!canWallJump)
         {
@@ -109,6 +125,9 @@ public class PlayerMovement : MonoBehaviour
                 body.AddForce(Vector3.up * jumpForce);
                 tryJumpNextPhysicsFrame = false;
                 isGrounded = false;
+
+                jumpingSound.pitch = Random.Range(0.4f, 0.6f);
+                jumpingSound.Play();
             }
             else if(isNearWall && canWallJump)
             {
@@ -119,6 +138,9 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 vel = body.velocity;
                 vel.y = 0;
                 body.velocity = vel;
+
+                jumpingSound.pitch = Random.Range(0.4f, 0.6f);
+                jumpingSound.Play();
             }
             tryJumpNextPhysicsFrame = false;
         }
