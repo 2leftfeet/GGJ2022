@@ -21,10 +21,12 @@ public class EnemyEdible : MonoBehaviour, IInteractable
     {
         if(isHovering)
         {
+            GameEvents.current.ConsumeUIEnterEvent();
             m_renderer.material.SetColor("_EmissionColor", glowColor);
         }
         else
         {
+            GameEvents.current.ConsumeUIExitEvent();
             m_renderer.material.SetColor("_EmissionColor", Color.black);
         }
 

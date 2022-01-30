@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject pauseUI;
 
+    [SerializeField]
+    GameObject consumeUI;
+
     void Start()
     {
         GameEvents.current.onPlayerDeathEvent += OpenRestartLevelUI;
@@ -22,6 +25,8 @@ public class UIManager : MonoBehaviour
         GameEvents.current.onPauseMenuEvent += OpenPauseMenu;
         GameEvents.current.onUnpauseMenuEvent += ClosePauseMenu;
         GameEvents.current.onSceneRestartEvent += ResetTimeScale;
+        GameEvents.current.onConsumeUIEnterEvent += OpenConsumeUI;
+        GameEvents.current.onConsumeUIExitEvent += CloseConsumeUI;
     }
 
     void OpenRestartLevelUI()
@@ -55,5 +60,15 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         ResetTimeScale();
+    }
+
+    void OpenConsumeUI()
+    {
+        consumeUI.gameObject.SetActive(true);
+    }
+
+    void CloseConsumeUI()
+    {
+        consumeUI.gameObject.SetActive(false);
     }
 }
