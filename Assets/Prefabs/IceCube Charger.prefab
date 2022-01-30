@@ -7,6 +7,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198183128, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: attackOrder.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198183133, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
+      propertyPath: healthAmount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 546352847022860790, guid: 7ef70834e48beff4dba07c106a42bbaa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45a9fa1cc85e1004a94ce1828c405870, type: 2}
     - target: {fileID: 5113642456816960356, guid: 7ef70834e48beff4dba07c106a42bbaa,
         type: 3}
       propertyPath: m_Name
@@ -67,5 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5794083263598940282, guid: 7ef70834e48beff4dba07c106a42bbaa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0207faeabff0ca41bfa7389f50a180c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ef70834e48beff4dba07c106a42bbaa, type: 3}
