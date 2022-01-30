@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 118085
+  controlID: 118688
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 118013
+  controlID: 118643
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 118014
+  controlID: 118621
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,10 +226,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1360}
-      m_SelectedIDs: ccf5e3ff
-      m_LastClickedID: -1837620
-      m_ExpandedIDs: 3ef6e3ffe8fae3ff864ce4ffe651e4ffd0cbe4fff470e7ffec49eaff6c6ceaff2ac7efff5431f0ff6c79f0ffa8b7f0ff44b9f0ffacd5f0ffc4eaf0ffd4f4f0fff4c2f3ff6ea5f8ff9ef6f8ff02e7f9ff129dfcffcc8cffff0290ffffd8a5ffff6ce20000caf7000066c20100ded002003ad1020096d20200eed20200cc070300
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: e2e00000
+      m_LastClickedID: 0
+      m_ExpandedIDs: ccfde2ff3ef6e3ffe8fae3ff864ce4ffe651e4ffd0cbe4fff470e7ffec49eaff6c6ceaff2ac7efff5431f0ff6c79f0ffa8b7f0ff44b9f0ffacd5f0ffc4eaf0ffd4f4f0fff4c2f3ff6ea5f8ff9ef6f8ff02e7f9ff129dfcffcc8cffff0290ffffd8a5ffff6ce20000caf7000066c20100ded002003ad1020096d20200eed20200cc070300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.10376931, y: 0.75568706, z: -0.12348468, w: 0.6348112}
     speed: 2
-    m_Value: {x: 0.1030232, y: 0.7594577, z: -0.12410104, w: 0.63024527}
+    m_Value: {x: 0.10376931, y: 0.755687, z: -0.12348467, w: 0.6348112}
   m_Size:
     m_Target: 243.98898
     speed: 2
@@ -713,21 +713,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Levels
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes/Levels
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\gmtk\GGJ2022
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 251}
-    m_SelectedIDs: f6e00000
-    m_LastClickedID: 57590
+    m_SelectedIDs: f8d90000
+    m_LastClickedID: 55800
     m_ExpandedIDs: 00000000ecd90000f0d90000f2d90000f4d90000f8d9000002da000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -781,9 +781,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ccf5e3ff
-    m_LastClickedInstanceID: -1837620
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: e2e00000
+    m_LastClickedInstanceID: 57570
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 27}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
