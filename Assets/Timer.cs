@@ -7,15 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    int m_Time = 0;
+    float m_Time = 0;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI bestTimeText;
     string m_ID;
+
+    bool timerRunning;
     
     void Start()
     {
+        timerRunning = true;
         CheckHighScore();
-        StartTimer();
         GameEvents.current.onLevelFinishEvent += StopTimer;
     }
 
@@ -25,24 +27,29 @@ public class Timer : MonoBehaviour
         Debug.Log(m_Time);
         if (PlayerPrefs.HasKey(m_ID))
         {
-            bestTimeText.text = PlayerPrefs.GetInt(m_ID).ToString();
+            float bestTime = PlayerPrefs.GetFloat(m_ID);
+            bestTimeText.text = string.Format("{0:00}:{1:00}:{2:00}", (int)bestTime/60, (int)bestTime%60, ((int)(bestTime * 100)) % 100);
         }
         else
         {
-            bestTimeText.text = "0";
+            bestTimeText.text = "--";
         }
     }
 
-    public void StartTimer()
+    public void Update()
     {
-        m_Time = 0;
-        InvokeRepeating("IcrementTime",1,1);
-    }
+        if(timerRunning)
+        {
+            m_Time += Time.deltaTime;
+            
+            timerText.text = string.Format("{0:00}:{1:00}:{2:00}", (int)m_Time/60, (int)m_Time%60, ((int)(m_Time * 100)) % 100);
 
+        }
+    }
     public void StopTimer()
     {
-        CancelInvoke();
-        if (PlayerPrefs.GetInt(m_ID) > m_Time || PlayerPrefs.GetInt(m_ID) == 0)
+        timerRunning = false;
+        if (PlayerPrefs.GetFloat(m_ID) > m_Time || !PlayerPrefs.HasKey(m_ID))
         {
             SetHighscore();
         }
@@ -50,12 +57,7 @@ public class Timer : MonoBehaviour
 
     public void SetHighscore()
     {
-        PlayerPrefs.SetInt(m_ID, m_Time);
+        PlayerPrefs.SetFloat(m_ID, m_Time);
     }
 
-    void IcrementTime()
-    {
-        m_Time += 1;
-        timerText.text = m_Time.ToString();
-    }
 }
