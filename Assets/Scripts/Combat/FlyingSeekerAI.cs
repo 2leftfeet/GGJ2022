@@ -91,7 +91,7 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 
     public void OnDeath()
     {
-        transform.root.tag = "Untagged";
+        transform.tag = "Untagged";
         //Decrease radius so it clips into the ground after falling
         //GetComponent<SphereCollider>().radius *= 0.5f;
         Destroy(GetComponent<Health>());
