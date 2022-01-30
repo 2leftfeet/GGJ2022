@@ -65,4 +65,18 @@ public class GameEvents : MonoBehaviour
     {
         onUnpauseMenuEvent?.Invoke();
     }
+
+    public event Action onConsumeUIEnterEvent;
+
+    public void ConsumeUIEnterEvent()
+    {
+        onConsumeUIEnterEvent?.Invoke();
+    }
+    
+    public event Action onConsumeUIExitEvent;
+
+    public void ConsumeUIExitEvent()
+    {
+        onConsumeUIExitEvent?.Invoke();
+    }
 }
