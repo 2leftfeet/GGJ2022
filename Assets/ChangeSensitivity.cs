@@ -11,12 +11,13 @@ public class ChangeSensitivity : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetFloat("MouseSensitivity"));
         slider = GetComponent<Slider>();
         m_Player = FindObjectOfType<PlayerMovement>();
         if (PlayerPrefs.HasKey("MouseSensitivity"))
         {
             m_Player.sensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
-            slider.value = PlayerPrefs.GetFloat("MouseSensitivity");
+            if (slider != null) slider.value = PlayerPrefs.GetFloat("MouseSensitivity");
         }
     }
 
