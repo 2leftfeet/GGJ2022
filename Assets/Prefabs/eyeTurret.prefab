@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561482646558582620}
   m_LocalRotation: {x: 0.50429904, y: 0.49566367, z: -0.50429904, w: 0.49566373}
-  m_LocalPosition: {x: 0.08570842, y: -0.07549039, z: 0}
+  m_LocalPosition: {x: 0.09, y: -0.07, z: 0}
   m_LocalScale: {x: 100.00002, y: 99.999985, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2825192525279271004}
   - component: {fileID: 5276792199241716730}
   - component: {fileID: 1646707811}
-  - component: {fileID: 6752681249064131711}
+  - component: {fileID: 684927051}
   m_Layer: 0
   m_Name: Icosphere
   m_TagString: Enemy
@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549421341411060180}
   m_LocalRotation: {x: -0, y: -0, z: 0.99996275, w: -0.008635384}
-  m_LocalPosition: {x: 0.08699935, y: 7.764, z: 0}
+  m_LocalPosition: {x: 0.077, y: 8.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -260,8 +260,8 @@ MonoBehaviour:
   healAmount: 25
   m_renderer: {fileID: 5218111466774819087}
   gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
---- !u!135 &6752681249064131711
-SphereCollider:
+--- !u!65 &684927051
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -271,8 +271,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: -0.21, z: 0.08}
 --- !u!1 &4251818720928129718
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8181335917777018423}
   m_LocalRotation: {x: -0, y: -0, z: 0.99996275, w: -0.008635384}
-  m_LocalPosition: {x: 0.041753337, y: 10.38361, z: 0}
+  m_LocalPosition: {x: 0.03, y: 11.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
