@@ -28,6 +28,9 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
     {
         if (!spawnLocation)
             spawnLocation = transform;
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        target = players[0].transform;
     }
 
     // Update is called once per frame
@@ -80,7 +83,6 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
         releadTimer = Time.time;
         ProjectileSpawned = false;
         readyToShoot = false;
-        Debug.Log("i shoot");
         Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
         Vector3 velocity = rigidbody.velocity;
         velocity =transform.forward * projectileSpeed;

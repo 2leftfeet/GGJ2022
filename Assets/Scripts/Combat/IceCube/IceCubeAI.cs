@@ -42,7 +42,6 @@ public class IceCubeAI : MonoBehaviour, IDeadable
 
     [SerializeField] LayerMask wallLayer;
 
-    [SerializeField]
     public Transform PlayerLocation;
 
     enum attacktype {slide, shoot};
@@ -65,7 +64,11 @@ public class IceCubeAI : MonoBehaviour, IDeadable
         rigidbody = GetComponent<Rigidbody>();
         sigilController = Sigil.GetComponent<SigilControler>();
         StartingHealth = damageShareHealth.healthAmount;
-   
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        PlayerLocation = players[0].transform;
+
+
     }
 
 
