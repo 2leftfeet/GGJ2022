@@ -4869,6 +4869,7 @@ MonoBehaviour:
   speed: 15
   randomDirStrengthStart: 5
   randomDirDecreaseSpeed: 2
+  damageType: 2
 --- !u!135 &8120908287845952774
 SphereCollider:
   m_ObjectHideFlags: 0

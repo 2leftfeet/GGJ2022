@@ -36,16 +36,21 @@ public class DamageShare : MonoBehaviour
                 break;
         }
 
+        List<Health> healthToIgnore = new List<Health>();
+        healthToIgnore.Add(originalHealth);
+
         foreach(var col in colliders)
         {
             var health = col.GetComponent<Health>();
-            if(health && health != originalHealth)
+            if(health && !healthToIgnore.Contains(health))
             {
                 if(health.vulnerability == VulnerableTo.All || (int)damageType == (int)health.vulnerability)
                 {
                     var projectile = Instantiate(projToUse, transform.position, Quaternion.identity);
                     projectile.damageValue = damageAmount;
                     projectile.target = health;
+
+                    healthToIgnore.Add(health);
                 }
             }
             

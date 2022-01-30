@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
-  healAmount: 10
+  healAmount: 100
   m_renderer: {fileID: 5794083263598940282}
   gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!1 &2151028711959543393
@@ -579,6 +579,7 @@ MonoBehaviour:
   attackLength: 2
   rotationSpeed: 0.1
   healthDeformationSpeed: 0.75
+  agroRange: 30
   SigilRigidbody: {fileID: 1425999844}
   SigilCollider: {fileID: 1425999845}
   SigilEdible: {fileID: 1425999846}
@@ -588,6 +589,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   PlayerLocation: {fileID: 0}
+  attackOrder: 000000000100000001000000
   shooters:
   - {fileID: 1441082714}
   - {fileID: 750258633}
@@ -605,8 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 100
-  vulnerability: 2
+  healthAmount: 50
+  vulnerability: 1
 --- !u!114 &198183134
 MonoBehaviour:
   m_ObjectHideFlags: 0

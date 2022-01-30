@@ -9,6 +9,7 @@ public class DamageShareProjectile : MonoBehaviour
     public int speed;
     public float randomDirStrengthStart = 3f;
     public float randomDirDecreaseSpeed = 1f;
+    public DamageType damageType;
 
     Vector3 randomDir;
     float randomDirStrength;
@@ -39,7 +40,7 @@ public class DamageShareProjectile : MonoBehaviour
         var health = other.GetComponent<Health>();
         if(health && health == target)
         {
-            health.ReduceHealth(damageValue);
+            health.ReduceHealth(damageValue, damageType);
             Destroy(gameObject);
         }
     }

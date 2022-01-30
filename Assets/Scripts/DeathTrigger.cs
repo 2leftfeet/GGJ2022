@@ -7,6 +7,9 @@ public class DeathTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        GameEvents.current.PlayerDeathEvent();
+        if(other.CompareTag("Player"))
+        {
+            GameEvents.current.PlayerDeathEvent();
+        }
     }
 }

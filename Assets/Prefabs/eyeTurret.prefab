@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 50
+  healthAmount: 15
   vulnerability: 2
 --- !u!114 &2825192525279271004
 MonoBehaviour:
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
-  healAmount: 10
+  healAmount: 25
   m_renderer: {fileID: 6190716683883951556}
   gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!1 &4251818720928129718
