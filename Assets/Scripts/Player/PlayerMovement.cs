@@ -10,8 +10,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool isNearWall;
     Vector2 rotation;
-    const string xAxis = "Mouse X"; //Avoid generating garbag
-	const string yAxis = "Mouse Y";
+
     
     Vector3 velocity;
     Vector3 targetVelocity;
@@ -84,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
         if(Physics.Raycast(groundCheckRay, out hit, playerHeight, groundLayermask))
         {
-            isGrounded = hit.distance < (playerHeight/2f + 0.3f);
+            isGrounded = hit.distance < (playerHeight/2f + 0.5f);
         }
 
         velocity = body.velocity;
@@ -163,8 +162,8 @@ public class PlayerMovement : MonoBehaviour
 
     void CameraLook()
     {
-        rotation.x += Input.GetAxis(xAxis) * sensitivity;
-        rotation.y += Input.GetAxis(yAxis) * sensitivity;
+        rotation.x += playerInput.MouseInput.x * sensitivity;
+        rotation.y += playerInput.MouseInput.y * sensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -89f, 89f);
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
 		var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
