@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 9c476e74f4539ea47a2f609971cef30c
   - enabled: 1
-    path: Assets/Scenes/Levels/GrinderLevel_withDecor.unity
-    guid: 9bb3e62ff7cc511478829ec4c7edea70
-  - enabled: 1
     path: Assets/Scenes/Levels/PlatformerIceCubeBossLevel.unity
     guid: 98bf5867843bd5b45ab0dbd4d25111b0
   - enabled: 1
     path: Assets/Scenes/Levels/WallJumpLevel.unity
     guid: 8207720a83ce0dd4c80357714ced3e3a
+  - enabled: 1
+    path: Assets/Scenes/Levels/GrinderLevel_withDecor.unity
+    guid: 9bb3e62ff7cc511478829ec4c7edea70
   - enabled: 1
     path: Assets/Scenes/Levels/WaterfallLevel.unity
     guid: da28cae31a7b2334aa07b825c529ebd6
