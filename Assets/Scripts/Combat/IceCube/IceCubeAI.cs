@@ -19,6 +19,8 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     [SerializeField] float rotationSpeed = 10f;
     [SerializeField] float healthDeformationSpeed = 0.75f;
     [SerializeField] float agroRange = 30f;
+    [SerializeField] AudioClip Slide;
+    AudioSource audioPlayer;
     bool didNotLosePlayer = false;
     bool isAlive = true;
     MeshRenderer meshRenderer;
@@ -59,6 +61,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     int StartingHealth;
     private void Start()
     {
+        audioPlayer = GetComponent<AudioSource>();
         meshRenderer = GetComponent<MeshRenderer>();
         damageShareHealth = GetComponent<DamageShareHealth>();
         myHealth = GetComponent<Health>();
@@ -77,6 +80,20 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     {
         if (isAlive)
         {
+            if (Mathf.Abs(rigidbody.velocity.x) > 1f || Mathf.Abs(rigidbody.velocity.z) > 1f)
+            {
+                audioPlayer.clip = Slide;
+                audioPlayer.loop = true;
+                if(!audioPlayer.isPlaying)
+                    audioPlayer.Play();
+            }
+            else
+            {
+                audioPlayer.loop = false;
+                audioPlayer.Stop();
+            }
+
+
             ManageHealth(myHealth.healthAmount, StartingHealth);
 
             sigilController.SyncPostition(transform.position);
@@ -90,6 +107,8 @@ public class IceCubeAI : MonoBehaviour, IDeadable
                 CubeLaunched = true;
                 if (nextAttack == attacktype.slide)
                 {
+                    
+
                     Vector3 velocity = rigidbody.velocity;
                     velocity = transform.forward * speed;
                     rigidbody.velocity = velocity;
