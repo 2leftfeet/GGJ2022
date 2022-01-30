@@ -828,6 +828,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1879855828834886033, guid: ee473441c56fabd40ba055172e4f0468,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1879855830042385688, guid: ee473441c56fabd40ba055172e4f0468,
         type: 3}
       propertyPath: m_Interpolate
@@ -5000,3 +5005,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 760aea4761dfde848a167b94d1be343b, type: 3}
+--- !u!1 &2119736804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8323059485886549755, guid: 3a886c3212f29f545a2f52a2af0e0390,
+    type: 3}
+  m_PrefabInstance: {fileID: 738485923}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2119736807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119736804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9de617f28ec3e4386a906a21de4e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 1160234426}
+  vignette: {fileID: 0}
+  vignetteSlider: 0.5
