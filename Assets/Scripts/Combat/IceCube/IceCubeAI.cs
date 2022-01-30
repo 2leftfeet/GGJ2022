@@ -27,6 +27,7 @@ public class IceCubeAI : MonoBehaviour, IDeadable
     [SerializeField] Rigidbody SigilRigidbody;
     [SerializeField] MeshCollider SigilCollider;
     [SerializeField] EnemyEdible SigilEdible;
+    [SerializeField] GameObject gibsVFX;
 
     //timers
     float targetingStart;
@@ -276,7 +277,16 @@ public class IceCubeAI : MonoBehaviour, IDeadable
 
             if (health && currentState == StateAI.attacking)
             {
-                health.ReduceHealth(myHealth.healthAmount);
+                var player = other.GetComponent<PlayerInput>();
+                if (player)
+                {
+                    health.ReduceHealth(myHealth.healthAmount);
+                }
+                else
+                {
+                    Destroy(Instantiate(gibsVFX, other.transform.position, Quaternion.identity), 10f);
+                    Destroy(other.transform.root.gameObject);
+                }
             }
         }
     }

@@ -582,6 +582,7 @@ MonoBehaviour:
   SigilRigidbody: {fileID: 1425999844}
   SigilCollider: {fileID: 1425999845}
   SigilEdible: {fileID: 1425999846}
+  gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
   speed: 40
   wallLayer:
     serializedVersion: 2
