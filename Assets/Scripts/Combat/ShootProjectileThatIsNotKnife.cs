@@ -57,6 +57,7 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
             if(ProjectileSpawned)
             {
                 Destroy(latestProjectile.gameObject);
+                ProjectileSpawned = false;
             }
         }
 
