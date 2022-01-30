@@ -114,6 +114,12 @@ MonoBehaviour:
   waterAffinity: {fileID: 7567146726318683299}
   magicNumber: 0.02
   audio: {fileID: 883160610460427810, guid: 9fb72f63965560248b3c78f5ebcdc69a, type: 3}
+  meatyHitSound: {fileID: 8800328739861620885, guid: 2723a6ca2b5563546bc69b2f4972ff7c,
+    type: 3}
+  clingHitSound: {fileID: 2936675050818808955, guid: 73e265ae539ad414f8c0b798712008d5,
+    type: 3}
+  simpleHitSound: {fileID: 8103502778626040603, guid: d11bf75e7c55d99408766a90d58fc245,
+    type: 3}
   author: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
 --- !u!54 &4500323425167992108

@@ -15,6 +15,10 @@ public class DaggerProjectile : MonoBehaviour
     [SerializeField] float magicNumber;
     [SerializeField] GameObject audio;
 
+    [SerializeField] AudioSource meatyHitSound;
+    [SerializeField] AudioSource clingHitSound;
+    [SerializeField] AudioSource simpleHitSound;
+
     Rigidbody body;
     DamageType currentType = DamageType.Physical;
 
@@ -48,9 +52,16 @@ public class DaggerProjectile : MonoBehaviour
             if(hitHealth.ReduceHealth(daggerDamage, currentType, author))
             {
                 Instantiate(bloodVFX, other.contacts[0].point + other.contacts[0].normal * 0.2f, Quaternion.FromToRotation(Vector3.back, other.contacts[0].normal));
-                if (audio)
-                    Destroy(Instantiate(audio, this.transform.position, this.transform.rotation), 1f);
+               
+                meatyHitSound.pitch = Random.Range(1.2f, 1.4f);
+                Destroy(Instantiate(meatyHitSound, other.contacts[0].point, Quaternion.identity), 1f);
+
                 Destroy(this.gameObject);
+            }
+            else
+            {
+                Destroy(Instantiate(clingHitSound, other.contacts[0].point, Quaternion.identity), 1f);
+      
             }
             //if(author) author.ReduceHealth(daggerDamage);
         }
@@ -68,6 +79,9 @@ public class DaggerProjectile : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
+
+            Destroy(Instantiate(simpleHitSound, other.contacts[0].point, Quaternion.identity), 1f);
+ 
         }
     }
 
@@ -78,7 +92,6 @@ public class DaggerProjectile : MonoBehaviour
             var envDamage = other.GetComponentInParent<EnvironmentDamage>();
             if(envDamage)
             {
-                Debug.Log("OnTriggerEnter");
                 currentType = envDamage.damageType;
                 if(envDamage.damageType == DamageType.Fire)
                 {

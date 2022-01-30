@@ -24,6 +24,8 @@ public class ShootProjectile : MonoBehaviour
     float startingKnifeY;
     float loweredKnifeY;
 
+    public AudioSource throwSound;
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -63,6 +65,9 @@ public class ShootProjectile : MonoBehaviour
             DaggerProjectile newProj = Instantiate(projectile, spawnTransform.position, spawnTransform.rotation);
             newProj.author = playerHealth;
             newProj.launchPos = spawnTransform.position;
+
+            throwSound.pitch = Random.Range(1.2f, 1.4f);
+            throwSound.Play();
         }
     }
 
