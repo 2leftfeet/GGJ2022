@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     void CheckHighScore()
     {
         m_ID = "Level " + SceneManager.GetActiveScene().buildIndex.ToString();
-        Debug.Log(bestTimeText);
+        Debug.Log(m_Time);
         if (PlayerPrefs.HasKey(m_ID))
         {
             bestTimeText.text = PlayerPrefs.GetInt(m_ID).ToString();
@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         CancelInvoke();
-        if (PlayerPrefs.GetInt(m_ID) > m_Time)
+        if (PlayerPrefs.GetInt(m_ID) > m_Time || PlayerPrefs.GetInt(m_ID) == 0)
         {
             SetHighscore();
         }
