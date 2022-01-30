@@ -58,11 +58,12 @@ public class SigilControler : MonoBehaviour
     void Targeting()
     {
         // change mat to red
-
-        Vector3 direction = playerPosition.transform.position - transform.position;
-        Quaternion toRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(correctFaceDirectionCorrection);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, sigilRotationSpeed * Time.fixedDeltaTime);
-
+        if (playerPosition)
+        {
+            Vector3 direction = playerPosition.transform.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(direction) * Quaternion.Euler(correctFaceDirectionCorrection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, sigilRotationSpeed * Time.fixedDeltaTime);
+        }
         ChangeScaleSin(50f, 0.01f);
     }
 
