@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 745239232733759219}
   - component: {fileID: 4371993570340273391}
   - component: {fileID: 4500323425167992108}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DaggerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,13 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 448
+  affinityLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   daggerDamage: 5
   bloodVFX: {fileID: 196779935207871927, guid: b9f75c39bf5bbba4393453e2a9c882e6, type: 3}
+  fireAffinity: {fileID: 4887908909447862125}
+  waterAffinity: {fileID: 7567146726318683299}
   author: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
 --- !u!54 &4500323425167992108
@@ -149,7 +154,7 @@ GameObject:
   - component: {fileID: 4887908909448107169}
   - component: {fileID: 4887908909466447937}
   - component: {fileID: 4887908909465517783}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fire Affinity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4892,7 +4897,7 @@ GameObject:
   - component: {fileID: 178773107802813360}
   - component: {fileID: 4013166188453446171}
   - component: {fileID: 7262492483395442293}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
