@@ -346,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayermask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 448
   wallLayermask:
     serializedVersion: 2
     m_Bits: 384
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 100
-  vulnerability: 0
+  vulnerability: 2
 --- !u!114 &1705625924
 MonoBehaviour:
   m_ObjectHideFlags: 0

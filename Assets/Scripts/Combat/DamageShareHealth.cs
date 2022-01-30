@@ -16,7 +16,7 @@ public class DamageShareHealth : Health
         if(vulnerability != VulnerableTo.All && (int)damageType != (int)vulnerability)
             return false;
 
-        if(author) damageShare.ShareDamageWithAuthor(amount, author);
+        if(author) damageShare.ShareDamageWithAuthor(amount, damageType, author);
         healthAmount -= amount;
         CheckForDeath();
         return true;

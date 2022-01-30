@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    public override bool ReduceHealth(int amount)
+    public override bool ReduceHealth(int amount, DamageType damageType, Health author)
     {
-        base.ReduceHealth(amount);
+        base.ReduceHealth(amount, damageType, author);
         GameEvents.current.PlayerTakeDamageEvent();
-
         return true;
     }
 

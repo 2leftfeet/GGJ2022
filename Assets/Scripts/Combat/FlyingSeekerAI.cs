@@ -16,8 +16,10 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     [SerializeField] int damageAmount = 30;
     [SerializeField] float damagePushForce = 50f;
     [SerializeField] float damagePushForceUpwards = 20f;
+    [SerializeField] float startFollowRange = 20f;
 
     bool isActive = true;
+    bool hasStartedUp = false;
     float noiseOffset;
     EnemyEdible edible;
 
@@ -34,9 +36,9 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
 
     void FixedUpdate()
     {
-        if(isActive)
+        Vector3 dirToPlayer = playerT.position - transform.position;
+        if(isActive && hasStartedUp)
         {
-            Vector3 dirToPlayer = playerT.position - transform.position;
             Vector3 flyDir = dirToPlayer.normalized;
 
             flyDir = flyDir * flySpeed;
@@ -57,9 +59,15 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
             noiseDir = noiseDir.normalized * noiseForceStrength;
 
             body.velocity = flyDir + noiseDir;
-
             transform.LookAt(playerT.position, Vector3.up);
+
         }
+        
+        if(!hasStartedUp && dirToPlayer.magnitude < startFollowRange)
+        {
+            hasStartedUp = true;
+        }
+        
     }
 
     void Update()

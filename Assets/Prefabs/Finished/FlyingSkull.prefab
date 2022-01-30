@@ -64,7 +64,7 @@ Rigidbody:
   m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &1112201256365215121
@@ -86,6 +86,7 @@ MonoBehaviour:
   damageAmount: 30
   damagePushForce: 500
   damagePushForceUpwards: 20
+  startFollowRange: 50
 --- !u!114 &1112201256365215132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
-  healAmount: 10
+  healAmount: 15
   m_renderer: {fileID: 1778570592351566381}
   gibsVFX: {fileID: 4562932916771562433, guid: f0d7a1d1d7d7bbc4f82abb7320e69506, type: 3}
 --- !u!114 &1112201256365215134
@@ -114,12 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be57dde65bb7801449f92228f9c9d44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageShareRange: 10
+  damageShareRange: 0
   damageShareProjectilePhysical: {fileID: 2484389312678582848, guid: 42d2514388e597a40be9436032175554,
     type: 3}
-  damageShareProjectileWater: {fileID: 4179198301667220225, guid: 153e1710698227146baecbb167dd15c2,
+  damageShareProjectileWater: {fileID: 527558483329396376, guid: 77adb258afea6644d9df882b9c16da5e,
     type: 3}
-  damageShareProjectileFire: {fileID: 527558483329396376, guid: 77adb258afea6644d9df882b9c16da5e,
+  damageShareProjectileFire: {fileID: 4179198301667220225, guid: 153e1710698227146baecbb167dd15c2,
     type: 3}
   originalHealth: {fileID: 0}
 --- !u!114 &1112201256365215133
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a2c1c0bc2b90e44b6d7b8c86f31566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 20
+  healthAmount: 10
   vulnerability: 2
 --- !u!1001 &1112201255212590761
 PrefabInstance:

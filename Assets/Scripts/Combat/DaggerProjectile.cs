@@ -12,6 +12,7 @@ public class DaggerProjectile : MonoBehaviour
     [SerializeField] GameObject bloodVFX;
     [SerializeField] GameObject fireAffinity;
     [SerializeField] GameObject waterAffinity;
+    [SerializeField] float magicNumber;
     
 
     Rigidbody body;
@@ -33,6 +34,12 @@ public class DaggerProjectile : MonoBehaviour
         Physics.IgnoreCollision(author.GetComponent<Collider>(), GetComponent<Collider>(), true);
     }
 
+    Vector3 velocityBeforeCollision;
+    void FixedUpdate()
+    {
+        velocityBeforeCollision = body.velocity;
+    }
+
     void OnCollisionEnter(Collision other)
     {
         var hitHealth = other.gameObject.GetComponent<Health>();
@@ -51,8 +58,13 @@ public class DaggerProjectile : MonoBehaviour
             var sp = author.GetComponent<ShootProjectile>();
             if(sp)
             {
-                sp.SpawnPropKnifeAtCollision(other.contacts[0].point, launchPos);
-                Destroy(this.gameObject);
+                RaycastHit hit;
+
+                if(Physics.Raycast(transform.position, velocityBeforeCollision, out hit, Mathf.Infinity, groundLayer))
+                {
+                    sp.SpawnPropKnifeAtCollision(hit.point, launchPos);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
