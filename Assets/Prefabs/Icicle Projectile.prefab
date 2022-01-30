@@ -4900,8 +4900,9 @@ MonoBehaviour:
   projectileDamage: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 448
   iceVFX: {fileID: 0}
+  audio: {fileID: 544855778932073078, guid: ff2b75a03f76bb746912a4a21c7bb408, type: 3}
 --- !u!1 &7423892085462203116
 GameObject:
   m_ObjectHideFlags: 0

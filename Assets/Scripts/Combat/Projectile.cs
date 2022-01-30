@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public int projectileDamage;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject iceVFX;
+    [SerializeField] GameObject audio;
 
     private void Start()
     {
@@ -19,6 +20,8 @@ public class Projectile : MonoBehaviour
 
         if (groundLayer == (groundLayer | (1 << other.gameObject.layer)))
         {
+            if(audio)
+                Destroy(Instantiate(audio, this.transform.position, this.transform.rotation), 1f);
             Destroy(this.gameObject);
         }
 
@@ -27,6 +30,8 @@ public class Projectile : MonoBehaviour
         {
             health.ReduceHealth(projectileDamage);
             Destroy(this.gameObject);
+            if (audio)
+                Destroy(Instantiate(audio, this.transform.position, this.transform.rotation), 1f);
         }
 
     }
