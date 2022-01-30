@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 459971516878017036}
   - component: {fileID: 3588804016303300009}
   - component: {fileID: 1596817940899965283}
-  - component: {fileID: 745239232733759219}
   - component: {fileID: 4371993570340273391}
   - component: {fileID: 4500323425167992108}
+  - component: {fileID: 4575742677181715358}
   m_Layer: 12
   m_Name: DaggerProjectile
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 948558597506173110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.364, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4887908909448107169}
@@ -88,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &745239232733759219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948558597506173110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.000779439, y: 0.009499418, z: 0.0034773268}
-  m_Center: {x: 0, y: 0.0016016455, z: 0}
 --- !u!114 &4371993570340273391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +112,7 @@ MonoBehaviour:
   bloodVFX: {fileID: 196779935207871927, guid: b9f75c39bf5bbba4393453e2a9c882e6, type: 3}
   fireAffinity: {fileID: 4887908909447862125}
   waterAffinity: {fileID: 7567146726318683299}
+  magicNumber: 0.02
   author: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
 --- !u!54 &4500323425167992108
@@ -143,6 +131,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!65 &4575742677181715358
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948558597506173110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.54, z: 0.17386632}
+  m_Center: {x: 0, y: 0.08008227, z: 0}
 --- !u!1 &4887908909447862125
 GameObject:
   m_ObjectHideFlags: 0

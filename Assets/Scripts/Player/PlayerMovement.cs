@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         //change velocity vector from world space to local space
         targetVelocity = transform.TransformDirection(targetVelocity);
 
-        CameraLook();
+        //CameraLook();
 
         if(!canWallJump)
         {
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
         if(Physics.Raycast(groundCheckRay, out hit, playerHeight, groundLayermask))
         {
-            isGrounded = hit.distance < (playerHeight/2f + 0.05f);
+            isGrounded = hit.distance < (playerHeight/2f + 0.3f);
         }
 
         velocity = body.velocity;

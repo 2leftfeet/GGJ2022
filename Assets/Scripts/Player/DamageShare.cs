@@ -52,9 +52,26 @@ public class DamageShare : MonoBehaviour
         }
     }
 
-    public void ShareDamageWithAuthor(int damageAmount, Health author)
+    public void ShareDamageWithAuthor(int damageAmount, DamageType damageType, Health author)
     {
-        var projectile = Instantiate(damageShareProjectilePhysical, transform.position, Quaternion.identity);
+        DamageShareProjectile projToUse;
+        switch(damageType)
+        {
+            case DamageType.Water:
+                projToUse = damageShareProjectileWater;
+                break;
+            case DamageType.Fire:
+                projToUse = damageShareProjectileFire;
+                break;
+            case DamageType.Physical:
+                projToUse = damageShareProjectilePhysical;
+                break;
+            default:
+                projToUse = damageShareProjectilePhysical;
+                break;
+        }
+
+        var projectile = Instantiate(projToUse, transform.position, Quaternion.identity);
         projectile.damageValue = damageAmount;
         projectile.target = author;
     }
