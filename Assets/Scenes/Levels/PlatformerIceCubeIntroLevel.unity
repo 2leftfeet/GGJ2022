@@ -657,11 +657,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingSkull (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1112201256365215132, guid: 0250020ecf37d7c4eaf262eb9b8fda39,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0250020ecf37d7c4eaf262eb9b8fda39, type: 3}
 --- !u!1001 &169109941
@@ -2051,21 +2046,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.6092205
       objectReference: {fileID: 0}
@@ -2224,7 +2204,7 @@ GameObject:
   - component: {fileID: 895572420}
   - component: {fileID: 895572422}
   - component: {fileID: 895572421}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerKick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

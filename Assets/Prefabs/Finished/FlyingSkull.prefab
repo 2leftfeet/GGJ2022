@@ -83,10 +83,13 @@ MonoBehaviour:
   noiseForceStrength: 2
   damageRange: 2
   damageCooldown: 2
+  damageChargeup: 1
   damageAmount: 30
   damagePushForce: 500
   damagePushForceUpwards: 20
   startFollowRange: 50
+  normalMat: {fileID: 2100000, guid: 2348d13548248e149a57ece5fbf4fd6a, type: 2}
+  angryMat: {fileID: 2100000, guid: 83f560eb7607cda4aa7a71afb4e15b09, type: 2}
 --- !u!114 &1112201256365215132
 MonoBehaviour:
   m_ObjectHideFlags: 0
