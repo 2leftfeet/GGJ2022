@@ -5,7 +5,7 @@ public class PlayerHealth : Health
     public override bool ReduceHealth(int amount)
     {
         base.ReduceHealth(amount);
-        if(GameEvents.current) GameEvents.current.PlayerTakeDamageEvent();
+        GameEvents.current.PlayerTakeDamageEvent();
 
         return true;
     }
