@@ -11,6 +11,14 @@ public class GameState : MonoBehaviour
         GameEvents.current.onSceneLoadEvent += GoToNextLevel;
     }
 
+    private void Update()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        int enemiesLeft = enemies.Length;
+        if(enemiesLeft == 0)
+            GameEvents.current.LevelFinishEvent();
+    }
+
     static void ReloadLevel()
     {
         Debug.Log("Restarting Level");
