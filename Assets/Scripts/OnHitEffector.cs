@@ -23,6 +23,7 @@ public class OnHitEffector : MonoBehaviour
 
     public void OnHit()
     {
+        Debug.Log("OhHit");
         vignette.intensity.value = 0.5f;
     }
 
