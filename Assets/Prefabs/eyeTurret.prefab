@@ -157,8 +157,9 @@ MonoBehaviour:
   damage: 10
   spawnLocation: {fileID: 0}
   target: {fileID: 0}
-  spawnProjectileEarly: 0
+  spawnProjectileEarly: 1
   AuthorsHealth: {fileID: 700403200750906545}
+  chargeUpTime: 1.5
   StopShooting: 1
 --- !u!114 &700403200750906546
 MonoBehaviour:

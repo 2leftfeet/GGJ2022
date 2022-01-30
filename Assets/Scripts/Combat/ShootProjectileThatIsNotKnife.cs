@@ -12,13 +12,16 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
     [SerializeField] public Transform target;          // a target that we are hunting
     [SerializeField] bool spawnProjectileEarly = false; // do we hover projectile before shooting 
     [SerializeField] DamageShareHealth AuthorsHealth; // do we hover projectile before shooting 
+    [SerializeField] float chargeUpTime = 1f;
+
+    float chargeupTimer = 0f;
 
     private bool readyToShoot = true;          // do we seee anemy and have a projectile
     private float releadTimer = 0f;
 
     public bool StopShooting = false; // for overrride from outside
 
-    Transform SpawnedProjectile;
+    Transform latestProjectile;
      
     RaycastHit hit;
 
@@ -46,15 +49,33 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
                     Spawn();
                 };
 
-                if (Physics.Raycast(spawnLocation.position, target.position - spawnLocation.position, out hit))
-                {
-                    if (hit.transform.GetComponent<PlayerInput>())
-                    {
-                        if (!spawnProjectileEarly && !ProjectileSpawned)
-                            Spawn();
-                        //Shoot();
-                    }
-                }
+                
+            }
+        }
+        else
+        {
+            if(ProjectileSpawned)
+            {
+                Destroy(latestProjectile.gameObject);
+            }
+        }
+
+        if(ProjectileSpawned)
+        {
+            chargeupTimer += Time.deltaTime;
+            Debug.Log("making projectile look at " + target.position);
+            latestProjectile.transform.LookAt(target.position);
+        }
+
+        if (chargeupTimer > chargeUpTime && Physics.Raycast(spawnLocation.position, target.position - spawnLocation.position, out hit))
+        {
+            if (hit.transform.GetComponent<PlayerInput>())
+            {
+                chargeupTimer = 0f;
+                Shoot(latestProjectile);
+                // if (!spawnProjectileEarly && !ProjectileSpawned)
+                //     Spawn();
+                // //Shoot();
             }
         }
     }
@@ -67,14 +88,17 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
         }
     }
 
+
+
     public void Spawn()
     {
         spawnLocation.transform.LookAt(target);
-        Transform newprojectile = Instantiate( projectile, spawnLocation.position, spawnLocation.rotation);
-        newprojectile.GetComponent<Projectile>().author = AuthorsHealth;
-        newprojectile.GetComponent<Projectile>().projectileDamage = damage;
+        latestProjectile = Instantiate( projectile, spawnLocation.position, spawnLocation.rotation);
+        latestProjectile.GetComponent<Projectile>().author = AuthorsHealth;
+        latestProjectile.GetComponent<Projectile>().projectileDamage = damage;
         ProjectileSpawned = true;
-        Shoot(newprojectile);
+        //latestProjectile.parent = transform;
+        //Shoot(newprojectile);
     }
 
     public void Shoot(Transform projectile)
@@ -85,7 +109,7 @@ public class ShootProjectileThatIsNotKnife : MonoBehaviour
         readyToShoot = false;
         Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
         Vector3 velocity = rigidbody.velocity;
-        velocity =transform.forward * projectileSpeed;
+        velocity = projectile.forward * projectileSpeed;
         rigidbody.velocity = velocity;
     }
 }

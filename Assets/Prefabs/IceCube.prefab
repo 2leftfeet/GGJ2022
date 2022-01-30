@@ -82,8 +82,9 @@ MonoBehaviour:
   damage: 15
   spawnLocation: {fileID: 0}
   target: {fileID: 0}
-  spawnProjectileEarly: 0
+  spawnProjectileEarly: 1
   AuthorsHealth: {fileID: 198183133}
+  chargeUpTime: 1.5
   StopShooting: 1
 --- !u!1 &1441082712
 GameObject:
@@ -136,8 +137,9 @@ MonoBehaviour:
   damage: 15
   spawnLocation: {fileID: 1441082713}
   target: {fileID: 0}
-  spawnProjectileEarly: 0
+  spawnProjectileEarly: 1
   AuthorsHealth: {fileID: 198183133}
+  chargeUpTime: 1.5
   StopShooting: 1
 --- !u!1 &1474963985
 GameObject:
@@ -190,8 +192,9 @@ MonoBehaviour:
   damage: 15
   spawnLocation: {fileID: 0}
   target: {fileID: 0}
-  spawnProjectileEarly: 0
+  spawnProjectileEarly: 1
   AuthorsHealth: {fileID: 198183133}
+  chargeUpTime: 1.5
   StopShooting: 1
 --- !u!1 &1695036117
 GameObject:
@@ -244,8 +247,9 @@ MonoBehaviour:
   damage: 15
   spawnLocation: {fileID: 0}
   target: {fileID: 0}
-  spawnProjectileEarly: 0
+  spawnProjectileEarly: 1
   AuthorsHealth: {fileID: 198183133}
+  chargeUpTime: 1.5
   StopShooting: 1
 --- !u!1 &2063483783
 GameObject:

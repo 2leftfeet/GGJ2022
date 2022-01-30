@@ -513,21 +513,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.37244
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.5
       objectReference: {fileID: 0}
@@ -656,6 +641,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlyingSkull (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112201256365215124, guid: 0250020ecf37d7c4eaf262eb9b8fda39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0250020ecf37d7c4eaf262eb9b8fda39, type: 3}
@@ -1488,6 +1478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingSkull
       objectReference: {fileID: 0}
+    - target: {fileID: 1112201256365215124, guid: 0250020ecf37d7c4eaf262eb9b8fda39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1112201256365215132, guid: 0250020ecf37d7c4eaf262eb9b8fda39,
         type: 3}
       propertyPath: m_Enabled
@@ -2038,6 +2033,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: eyeTurret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394413314614022631, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700403200750906548, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
+        type: 3}
+      propertyPath: chargeUpTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 700403200750906548, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
+        type: 3}
+      propertyPath: spawnProjectileEarly
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1023140088909957981, guid: 01fe4aaa3e5bf58449a99a55dab6868a,
         type: 3}
