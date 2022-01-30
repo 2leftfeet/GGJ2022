@@ -16,7 +16,7 @@ public class SpawnGibs : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             var randomIndex = Random.Range(0, 4);
-            var gib = Instantiate(gibs[randomIndex],new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity);
+            var gib = Instantiate(gibs[randomIndex],new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity, transform);
             SetVelocity(gib.GetComponent<Rigidbody>());
         }
     }

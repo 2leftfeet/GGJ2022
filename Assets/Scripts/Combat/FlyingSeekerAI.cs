@@ -57,6 +57,8 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
             noiseDir = noiseDir.normalized * noiseForceStrength;
 
             body.velocity = flyDir + noiseDir;
+
+            transform.LookAt(playerT.position, Vector3.up);
         }
     }
 
@@ -82,7 +84,7 @@ public class FlyingSeekerAI : MonoBehaviour, IDeadable
     public void OnDeath()
     {
         //Decrease radius so it clips into the ground after falling
-        GetComponent<SphereCollider>().radius *= 0.5f;
+        //GetComponent<SphereCollider>().radius *= 0.5f;
         Destroy(GetComponent<Health>());
         Debug.Log("flier die");
         body.useGravity = true;

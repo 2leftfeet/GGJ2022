@@ -6,14 +6,14 @@ public class EnemyEdible : MonoBehaviour, IInteractable
 {
     [SerializeField] Color glowColor = Color.black;
     [SerializeField] int healAmount = 10;
+    [SerializeField] Renderer m_renderer;
+    [SerializeField] GameObject gibsVFX;
 
     bool isHovering = false;
-    Renderer m_renderer;
    
 
     void Start()
     {
-        m_renderer = GetComponent<Renderer>();
         m_renderer.material.EnableKeyword("_EMISSION");
     }
 
@@ -43,7 +43,9 @@ public class EnemyEdible : MonoBehaviour, IInteractable
         {
             health.AddHealth(healAmount);
             Destroy(gameObject);
-            //TODO: Spawn gibs
+
+            Destroy(Instantiate(gibsVFX, transform.position, Quaternion.identity), 10f);
+            
         }
     }
 }

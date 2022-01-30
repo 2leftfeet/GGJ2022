@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8980007417458692470}
   - component: {fileID: 554195159705834783}
   - component: {fileID: 4233829201391594510}
-  - component: {fileID: 2411216056267288942}
+  - component: {fileID: 8738822504976233234}
   m_Layer: 9
   m_Name: Gibs4
   m_TagString: Untagged
@@ -94,24 +94,23 @@ Rigidbody:
   m_GameObject: {fileID: 2527632901484084299}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &2411216056267288942
-CapsuleCollider:
+--- !u!65 &8738822504976233234
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2527632901484084299}
-  m_Material: {fileID: 13400000, guid: 4be3bc902c404004c8c94892ad557e77, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0017033621
-  m_Height: 0.008986389
-  m_Direction: 1
-  m_Center: {x: -0.000114483526, y: 0.000057365036, z: 0.00014528268}
+  serializedVersion: 2
+  m_Size: {x: 0.0034067242, y: 0.008626463, z: 0.002383474}
+  m_Center: {x: -0.00011448353, y: -0.00012260035, z: 0.00014528267}

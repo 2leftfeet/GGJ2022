@@ -134,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(interactionRay, out interactionRayHit, interactionRayDistance))
         {
+            Debug.Log("rayhit");
             if (interactionRayHit.collider.gameObject.GetComponent<IInteractable>() != null)
 			{
 				var interactable = interactionRayHit.collider.gameObject.GetComponent<IInteractable>();

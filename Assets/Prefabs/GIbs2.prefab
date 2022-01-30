@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8513546859652617598}
   - component: {fileID: 6172997287591795987}
   - component: {fileID: 5400638352511097220}
-  - component: {fileID: 313176635187150518}
+  - component: {fileID: 7384441216637862135}
   m_Layer: 9
   m_Name: GIbs2
   m_TagString: Untagged
@@ -94,23 +94,23 @@ Rigidbody:
   m_GameObject: {fileID: 7124804052290527517}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &313176635187150518
-SphereCollider:
+--- !u!65 &7384441216637862135
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7124804052290527517}
-  m_Material: {fileID: 13400000, guid: 4be3bc902c404004c8c94892ad557e77, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.008124234
+  m_Size: {x: 0.010115536, y: 0.016248468, z: 0.010994954}
   m_Center: {x: 0.000063374406, y: -0.0011550032, z: 0.00013437026}
